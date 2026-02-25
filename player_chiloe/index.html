@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Visor Viento Chiloé</title>
+<style>
+  body{font-family: Arial, sans-serif; margin: 16px;}
+  .wrap{max-width: 1200px; margin: 0 auto;}
+  img{width: 100%; height: auto; border: 1px solid #ccc; border-radius: 8px;}
+  .controls{display:flex; gap:8px; align-items:center; flex-wrap:wrap; margin: 12px 0;}
+  button{padding:8px 12px;}
+  input[type="range"]{width: min(720px, 100%);}
+  .label{font-size: 16px; font-weight: 700;}
+  .small{font-size: 13px; color:#444;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="label" id="lbl">—</div>
+  <div class="small">Controles: ◀︎ / ▶︎ para avanzar, barra para saltar, Play/Pausa.</div>
+  <div class="controls">
+    <button id="prev">⟵</button>
+    <button id="play">▶︎ Play</button>
+    <button id="pause">⏸︎ Pausa</button>
+    <button id="next">⟶</button>
+    <span>Velocidad:</span>
+    <input id="speed" type="range" min="200" max="2000" step="100" value="700" />
+    <span id="speedv">700 ms</span>
+  </div>
+  <input id="slider" type="range" min="0" max="40" step="1" value="0" />
+  <img id="img" src="" alt="frame" />
+</div>
+
+<script>
+const frames = [{'file': 'frames/frame_0000.jpg', 'label': '2026-02-25 03 CLT'}, {'file': 'frames/frame_0001.jpg', 'label': '2026-02-25 09 CLT'}, {'file': 'frames/frame_0002.jpg', 'label': '2026-02-25 15 CLT'}, {'file': 'frames/frame_0003.jpg', 'label': '2026-02-25 21 CLT'}, {'file': 'frames/frame_0004.jpg', 'label': '2026-02-26 03 CLT'}, {'file': 'frames/frame_0005.jpg', 'label': '2026-02-26 09 CLT'}, {'file': 'frames/frame_0006.jpg', 'label': '2026-02-26 15 CLT'}, {'file': 'frames/frame_0007.jpg', 'label': '2026-02-26 21 CLT'}, {'file': 'frames/frame_0008.jpg', 'label': '2026-02-27 03 CLT'}, {'file': 'frames/frame_0009.jpg', 'label': '2026-02-27 09 CLT'}, {'file': 'frames/frame_0010.jpg', 'label': '2026-02-27 15 CLT'}, {'file': 'frames/frame_0011.jpg', 'label': '2026-02-27 21 CLT'}, {'file': 'frames/frame_0012.jpg', 'label': '2026-02-28 03 CLT'}, {'file': 'frames/frame_0013.jpg', 'label': '2026-02-28 09 CLT'}, {'file': 'frames/frame_0014.jpg', 'label': '2026-02-28 15 CLT'}, {'file': 'frames/frame_0015.jpg', 'label': '2026-02-28 21 CLT'}, {'file': 'frames/frame_0016.jpg', 'label': '2026-03-01 03 CLT'}, {'file': 'frames/frame_0017.jpg', 'label': '2026-03-01 09 CLT'}, {'file': 'frames/frame_0018.jpg', 'label': '2026-03-01 15 CLT'}, {'file': 'frames/frame_0019.jpg', 'label': '2026-03-01 21 CLT'}, {'file': 'frames/frame_0020.jpg', 'label': '2026-03-02 03 CLT'}, {'file': 'frames/frame_0021.jpg', 'label': '2026-03-02 09 CLT'}, {'file': 'frames/frame_0022.jpg', 'label': '2026-03-02 15 CLT'}, {'file': 'frames/frame_0023.jpg', 'label': '2026-03-02 21 CLT'}, {'file': 'frames/frame_0024.jpg', 'label': '2026-03-03 03 CLT'}, {'file': 'frames/frame_0025.jpg', 'label': '2026-03-03 09 CLT'}, {'file': 'frames/frame_0026.jpg', 'label': '2026-03-03 15 CLT'}, {'file': 'frames/frame_0027.jpg', 'label': '2026-03-03 21 CLT'}, {'file': 'frames/frame_0028.jpg', 'label': '2026-03-04 03 CLT'}, {'file': 'frames/frame_0029.jpg', 'label': '2026-03-04 09 CLT'}, {'file': 'frames/frame_0030.jpg', 'label': '2026-03-04 15 CLT'}, {'file': 'frames/frame_0031.jpg', 'label': '2026-03-04 21 CLT'}, {'file': 'frames/frame_0032.jpg', 'label': '2026-03-05 03 CLT'}, {'file': 'frames/frame_0033.jpg', 'label': '2026-03-05 09 CLT'}, {'file': 'frames/frame_0034.jpg', 'label': '2026-03-05 15 CLT'}, {'file': 'frames/frame_0035.jpg', 'label': '2026-03-05 21 CLT'}, {'file': 'frames/frame_0036.jpg', 'label': '2026-03-06 03 CLT'}, {'file': 'frames/frame_0037.jpg', 'label': '2026-03-06 09 CLT'}, {'file': 'frames/frame_0038.jpg', 'label': '2026-03-06 15 CLT'}, {'file': 'frames/frame_0039.jpg', 'label': '2026-03-06 21 CLT'}, {'file': 'frames/frame_0040.jpg', 'label': '2026-03-07 03 CLT'}];
+let idx = 0;
+let timer = null;
+
+const img = document.getElementById("img");
+const lbl = document.getElementById("lbl");
+const slider = document.getElementById("slider");
+const speed = document.getElementById("speed");
+const speedv = document.getElementById("speedv");
+
+function show(i){
+  idx = Math.max(0, Math.min(frames.length-1, i));
+  img.src = frames[idx].file;
+  lbl.textContent = frames[idx].label;
+  slider.value = idx;
+}
+
+function play(){
+  stop();
+  timer = setInterval(()=>{ show(idx+1); if(idx>=frames.length-1) stop(); }, parseInt(speed.value));
+}
+
+function stop(){
+  if(timer) { clearInterval(timer); timer=null; }
+}
+
+document.getElementById("prev").onclick = ()=>show(idx-1);
+document.getElementById("next").onclick = ()=>show(idx+1);
+document.getElementById("play").onclick = ()=>play();
+document.getElementById("pause").onclick = ()=>stop();
+slider.oninput = ()=>show(parseInt(slider.value));
+speed.oninput = ()=>{ speedv.textContent = speed.value + " ms"; if(timer) play(); };
+
+document.addEventListener("keydown", (e)=>{
+  if(e.key==="ArrowLeft") show(idx-1);
+  if(e.key==="ArrowRight") show(idx+1);
+  if(e.key===" ") { e.preventDefault(); timer? stop(): play(); }
+});
+
+show(0);
+</script>
+</body>
+</html>
