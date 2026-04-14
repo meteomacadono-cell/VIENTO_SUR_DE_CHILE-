@@ -16,7 +16,7 @@
   .wrap {
     height: 100%;
     display: grid;
-    grid-template-columns: 300px 1fr;
+    grid-template-columns: 360px 1fr;
     grid-template-rows: auto auto 1fr;
     grid-template-areas:
       "sidebar header"
@@ -26,30 +26,32 @@
 
   .sidebar {
     grid-area: sidebar;
-    padding: 12px 10px;
+    padding: 14px 12px;
     background:#0f1621;
     border-right:1px solid #223146;
     display:flex;
     flex-direction:column;
-    gap:10px;
+    gap:12px;
     overflow:auto;
   }
 
   .sidebar-title {
     font-weight:800;
-    font-size:15px;
-    margin-bottom:4px;
+    font-size:18px;
+    margin-bottom:2px;
   }
 
   .alert-btn {
     background:#1c2633;
-    color:#e8eef7;
-    border:1px solid #2b3b52;
-    padding:10px;
-    border-radius:10px;
+    color:#f4f8ff;
+    border:1px solid #3a516f;
+    padding:12px 14px;
+    border-radius:12px;
     cursor:pointer;
-    font-weight:700;
+    font-weight:800;
     text-align:left;
+    font-size:15px;
+    line-height:1.25;
   }
 
   .alert-btn:hover {
@@ -60,11 +62,11 @@
     margin-top:8px;
     background:#111822;
     border:1px solid #2b3b52;
-    border-radius:10px;
-    padding:10px;
-    font-size:13px;
-    line-height:1.5;
-    min-height:220px;
+    border-radius:12px;
+    padding:14px 14px 12px 14px;
+    font-size:18px;
+    line-height:1.55;
+    min-height:260px;
     white-space:normal;
   }
 
@@ -77,6 +79,7 @@
     gap: 12px;
     flex-wrap: wrap;
     font-weight: 750;
+    font-size: 18px;
   }
 
   .top-controls {
@@ -110,11 +113,11 @@
     background:#1c2633;
     color:#e8eef7;
     border:1px solid #2b3b52;
-    padding:6px 10px;
+    padding:8px 12px;
     border-radius:10px;
     cursor:pointer;
     font-weight:650;
-    font-size:13px;
+    font-size:15px;
   }
 
   button:hover { filter: brightness(1.08); }
@@ -123,15 +126,15 @@
     background:#111822;
     color:#e8eef7;
     border:1px solid #2b3b52;
-    padding:6px 10px;
+    padding:8px 12px;
     border-radius:10px;
     font-weight:650;
-    font-size:13px;
+    font-size:15px;
   }
 
   .dia-item {
-    margin-bottom:8px;
-    padding-bottom:8px;
+    margin-bottom:12px;
+    padding-bottom:12px;
     border-bottom:1px solid #233247;
   }
 
@@ -141,12 +144,47 @@
     padding-bottom:0;
   }
 
+  .dia-fecha {
+    font-size:18px;
+    font-weight:800;
+    margin-bottom:6px;
+  }
+
   .sin-alerta {
-    color:#9fd39f;
+    color:#96f0a2;
+    font-size:17px;
+    font-weight:700;
   }
 
   .con-alerta {
-    color:#ffd38a;
+    color:#ff5b5b;
+    font-size:17px;
+    font-weight:800;
+    text-shadow:
+      0 0 1px #ffffff,
+      0 0 2px #ffffff;
+  }
+
+  .aviso-btn {
+    display:inline-block;
+    padding:8px 12px;
+    border-radius:10px;
+    text-decoration:none;
+    font-size:16px;
+    font-weight:800;
+    line-height:1.3;
+    border:1px solid rgba(255,255,255,0.20);
+    box-shadow: 0 2px 10px rgba(0,0,0,.25);
+  }
+
+  .aviso-btn.cercano {
+    background:#b71c1c;
+    color:#ffffff;
+  }
+
+  .aviso-btn.lejano {
+    background:#d97706;
+    color:#ffffff;
   }
 </style>
 </head>
@@ -155,14 +193,16 @@
 <div class="wrap">
 
   <div class="sidebar">
-    <div class="sidebar-title">Puntos de interés</div>
+    <div class="sidebar-title">Zonas de interés</div>
 
-    <button class="alert-btn" onclick="showAlert('PM_RELONCAVI')">PM / Reloncaví</button>
-    <button class="alert-btn" onclick="showAlert('GUAFO')">Guafo</button>
-    <button class="alert-btn" onclick="showAlert('INCHEMO')">Inchemo</button>
-    <button class="alert-btn" onclick="showAlert('PENAS')">Penas</button>
+    <button class="alert-btn" onclick="showAlert('ACCESO_CANAL_CHACAO')">Acceso Canal Chacao</button>
+    <button class="alert-btn" onclick="showAlert('PUERTO_MONTT_SENO_RELONCAVI')">Puerto Montt y Seno Reloncaví</button>
+    <button class="alert-btn" onclick="showAlert('AGUAS_INTERIORES_CH1_CH2')">Aguas interiores Chiloé (CH1–CH2)</button>
+    <button class="alert-btn" onclick="showAlert('BOCA_GUAFO_GOLFO_CORCOVADO')">Boca del Guafo – Golfo Corcovado</button>
+    <button class="alert-btn" onclick="showAlert('CANAL_MORALEDA')">Canal Moraleda</button>
+    <button class="alert-btn" onclick="showAlert('GOLFO_DE_PENAS')">Golfo de Penas</button>
 
-    <div id="alert-box" class="alert-box">Selecciona un punto.</div>
+    <div id="alert-box" class="alert-box">Selecciona una zona.</div>
   </div>
 
   <header>
@@ -187,7 +227,8 @@
 
 <script>
 const FRAMES = {"CHILOE": ["CHILOE/CHILOE_VIENTO_20260413_06Z.png", "CHILOE/CHILOE_VIENTO_20260413_09Z.png", "CHILOE/CHILOE_VIENTO_20260413_12Z.png", "CHILOE/CHILOE_VIENTO_20260413_15Z.png", "CHILOE/CHILOE_VIENTO_20260413_18Z.png", "CHILOE/CHILOE_VIENTO_20260413_21Z.png", "CHILOE/CHILOE_VIENTO_20260414_00Z.png", "CHILOE/CHILOE_VIENTO_20260414_03Z.png", "CHILOE/CHILOE_VIENTO_20260414_06Z.png", "CHILOE/CHILOE_VIENTO_20260414_09Z.png", "CHILOE/CHILOE_VIENTO_20260414_12Z.png", "CHILOE/CHILOE_VIENTO_20260414_15Z.png", "CHILOE/CHILOE_VIENTO_20260414_18Z.png", "CHILOE/CHILOE_VIENTO_20260414_21Z.png", "CHILOE/CHILOE_VIENTO_20260415_00Z.png", "CHILOE/CHILOE_VIENTO_20260415_03Z.png", "CHILOE/CHILOE_VIENTO_20260415_06Z.png", "CHILOE/CHILOE_VIENTO_20260415_09Z.png", "CHILOE/CHILOE_VIENTO_20260415_12Z.png", "CHILOE/CHILOE_VIENTO_20260415_15Z.png", "CHILOE/CHILOE_VIENTO_20260415_18Z.png", "CHILOE/CHILOE_VIENTO_20260415_21Z.png", "CHILOE/CHILOE_VIENTO_20260416_00Z.png", "CHILOE/CHILOE_VIENTO_20260416_03Z.png", "CHILOE/CHILOE_VIENTO_20260416_06Z.png", "CHILOE/CHILOE_VIENTO_20260416_09Z.png", "CHILOE/CHILOE_VIENTO_20260416_12Z.png", "CHILOE/CHILOE_VIENTO_20260416_15Z.png", "CHILOE/CHILOE_VIENTO_20260416_18Z.png", "CHILOE/CHILOE_VIENTO_20260416_21Z.png", "CHILOE/CHILOE_VIENTO_20260417_00Z.png", "CHILOE/CHILOE_VIENTO_20260417_03Z.png", "CHILOE/CHILOE_VIENTO_20260417_06Z.png", "CHILOE/CHILOE_VIENTO_20260417_09Z.png", "CHILOE/CHILOE_VIENTO_20260417_12Z.png", "CHILOE/CHILOE_VIENTO_20260417_15Z.png", "CHILOE/CHILOE_VIENTO_20260417_18Z.png", "CHILOE/CHILOE_VIENTO_20260417_21Z.png", "CHILOE/CHILOE_VIENTO_20260418_00Z.png", "CHILOE/CHILOE_VIENTO_20260418_03Z.png", "CHILOE/CHILOE_VIENTO_20260418_06Z.png", "CHILOE/CHILOE_VIENTO_20260418_09Z.png", "CHILOE/CHILOE_VIENTO_20260418_12Z.png", "CHILOE/CHILOE_VIENTO_20260418_15Z.png", "CHILOE/CHILOE_VIENTO_20260418_18Z.png", "CHILOE/CHILOE_VIENTO_20260418_21Z.png", "CHILOE/CHILOE_VIENTO_20260419_00Z.png", "CHILOE/CHILOE_VIENTO_20260419_03Z.png", "CHILOE/CHILOE_VIENTO_20260419_06Z.png", "CHILOE/CHILOE_VIENTO_20260419_09Z.png", "CHILOE/CHILOE_VIENTO_20260419_12Z.png", "CHILOE/CHILOE_VIENTO_20260419_15Z.png", "CHILOE/CHILOE_VIENTO_20260419_18Z.png", "CHILOE/CHILOE_VIENTO_20260419_21Z.png", "CHILOE/CHILOE_VIENTO_20260420_00Z.png", "CHILOE/CHILOE_VIENTO_20260420_03Z.png", "CHILOE/CHILOE_VIENTO_20260420_06Z.png", "CHILOE/CHILOE_VIENTO_20260420_09Z.png", "CHILOE/CHILOE_VIENTO_20260420_12Z.png", "CHILOE/CHILOE_VIENTO_20260420_15Z.png", "CHILOE/CHILOE_VIENTO_20260420_18Z.png", "CHILOE/CHILOE_VIENTO_20260420_21Z.png", "CHILOE/CHILOE_VIENTO_20260421_00Z.png", "CHILOE/CHILOE_VIENTO_20260421_03Z.png", "CHILOE/CHILOE_VIENTO_20260421_06Z.png", "CHILOE/CHILOE_VIENTO_20260421_09Z.png", "CHILOE/CHILOE_VIENTO_20260421_12Z.png", "CHILOE/CHILOE_VIENTO_20260421_15Z.png", "CHILOE/CHILOE_VIENTO_20260421_18Z.png", "CHILOE/CHILOE_VIENTO_20260421_21Z.png", "CHILOE/CHILOE_VIENTO_20260422_00Z.png", "CHILOE/CHILOE_VIENTO_20260422_03Z.png", "CHILOE/CHILOE_VIENTO_20260422_06Z.png", "CHILOE/CHILOE_VIENTO_20260422_09Z.png", "CHILOE/CHILOE_VIENTO_20260422_12Z.png", "CHILOE/CHILOE_VIENTO_20260422_15Z.png", "CHILOE/CHILOE_VIENTO_20260422_18Z.png", "CHILOE/CHILOE_VIENTO_20260422_21Z.png", "CHILOE/CHILOE_VIENTO_20260423_00Z.png", "CHILOE/CHILOE_VIENTO_20260423_03Z.png", "CHILOE/CHILOE_VIENTO_20260423_06Z.png"], "CHACAO_PENAS": ["CHACAO_PENAS/CHACAO_PENAS_20260413_03L.png", "CHACAO_PENAS/CHACAO_PENAS_20260413_06L.png", "CHACAO_PENAS/CHACAO_PENAS_20260413_09L.png", "CHACAO_PENAS/CHACAO_PENAS_20260413_12L.png", "CHACAO_PENAS/CHACAO_PENAS_20260413_15L.png", "CHACAO_PENAS/CHACAO_PENAS_20260413_18L.png", "CHACAO_PENAS/CHACAO_PENAS_20260413_21L.png", "CHACAO_PENAS/CHACAO_PENAS_20260414_00L.png", "CHACAO_PENAS/CHACAO_PENAS_20260414_03L.png", "CHACAO_PENAS/CHACAO_PENAS_20260414_06L.png", "CHACAO_PENAS/CHACAO_PENAS_20260414_09L.png", "CHACAO_PENAS/CHACAO_PENAS_20260414_12L.png", "CHACAO_PENAS/CHACAO_PENAS_20260414_15L.png", "CHACAO_PENAS/CHACAO_PENAS_20260414_18L.png", "CHACAO_PENAS/CHACAO_PENAS_20260414_21L.png", "CHACAO_PENAS/CHACAO_PENAS_20260415_00L.png", "CHACAO_PENAS/CHACAO_PENAS_20260415_03L.png", "CHACAO_PENAS/CHACAO_PENAS_20260415_06L.png", "CHACAO_PENAS/CHACAO_PENAS_20260415_09L.png", "CHACAO_PENAS/CHACAO_PENAS_20260415_12L.png", "CHACAO_PENAS/CHACAO_PENAS_20260415_15L.png", "CHACAO_PENAS/CHACAO_PENAS_20260415_18L.png", "CHACAO_PENAS/CHACAO_PENAS_20260415_21L.png", "CHACAO_PENAS/CHACAO_PENAS_20260416_00L.png", "CHACAO_PENAS/CHACAO_PENAS_20260416_03L.png", "CHACAO_PENAS/CHACAO_PENAS_20260416_06L.png", "CHACAO_PENAS/CHACAO_PENAS_20260416_09L.png", "CHACAO_PENAS/CHACAO_PENAS_20260416_12L.png", "CHACAO_PENAS/CHACAO_PENAS_20260416_15L.png", "CHACAO_PENAS/CHACAO_PENAS_20260416_18L.png", "CHACAO_PENAS/CHACAO_PENAS_20260416_21L.png", "CHACAO_PENAS/CHACAO_PENAS_20260417_00L.png", "CHACAO_PENAS/CHACAO_PENAS_20260417_03L.png", "CHACAO_PENAS/CHACAO_PENAS_20260417_06L.png", "CHACAO_PENAS/CHACAO_PENAS_20260417_09L.png", "CHACAO_PENAS/CHACAO_PENAS_20260417_12L.png", "CHACAO_PENAS/CHACAO_PENAS_20260417_15L.png", "CHACAO_PENAS/CHACAO_PENAS_20260417_18L.png", "CHACAO_PENAS/CHACAO_PENAS_20260417_21L.png", "CHACAO_PENAS/CHACAO_PENAS_20260418_00L.png", "CHACAO_PENAS/CHACAO_PENAS_20260418_03L.png", "CHACAO_PENAS/CHACAO_PENAS_20260418_06L.png", "CHACAO_PENAS/CHACAO_PENAS_20260418_09L.png", "CHACAO_PENAS/CHACAO_PENAS_20260418_12L.png", "CHACAO_PENAS/CHACAO_PENAS_20260418_15L.png", "CHACAO_PENAS/CHACAO_PENAS_20260418_18L.png", "CHACAO_PENAS/CHACAO_PENAS_20260418_21L.png", "CHACAO_PENAS/CHACAO_PENAS_20260419_00L.png", "CHACAO_PENAS/CHACAO_PENAS_20260419_03L.png", "CHACAO_PENAS/CHACAO_PENAS_20260419_06L.png", "CHACAO_PENAS/CHACAO_PENAS_20260419_09L.png", "CHACAO_PENAS/CHACAO_PENAS_20260419_12L.png", "CHACAO_PENAS/CHACAO_PENAS_20260419_15L.png", "CHACAO_PENAS/CHACAO_PENAS_20260419_18L.png", "CHACAO_PENAS/CHACAO_PENAS_20260419_21L.png", "CHACAO_PENAS/CHACAO_PENAS_20260420_00L.png", "CHACAO_PENAS/CHACAO_PENAS_20260420_03L.png", "CHACAO_PENAS/CHACAO_PENAS_20260420_06L.png", "CHACAO_PENAS/CHACAO_PENAS_20260420_09L.png", "CHACAO_PENAS/CHACAO_PENAS_20260420_12L.png", "CHACAO_PENAS/CHACAO_PENAS_20260420_15L.png", "CHACAO_PENAS/CHACAO_PENAS_20260420_18L.png", "CHACAO_PENAS/CHACAO_PENAS_20260420_21L.png", "CHACAO_PENAS/CHACAO_PENAS_20260421_00L.png", "CHACAO_PENAS/CHACAO_PENAS_20260421_03L.png", "CHACAO_PENAS/CHACAO_PENAS_20260421_06L.png", "CHACAO_PENAS/CHACAO_PENAS_20260421_09L.png", "CHACAO_PENAS/CHACAO_PENAS_20260421_12L.png", "CHACAO_PENAS/CHACAO_PENAS_20260421_15L.png", "CHACAO_PENAS/CHACAO_PENAS_20260421_18L.png", "CHACAO_PENAS/CHACAO_PENAS_20260421_21L.png", "CHACAO_PENAS/CHACAO_PENAS_20260422_00L.png", "CHACAO_PENAS/CHACAO_PENAS_20260422_03L.png", "CHACAO_PENAS/CHACAO_PENAS_20260422_06L.png", "CHACAO_PENAS/CHACAO_PENAS_20260422_09L.png", "CHACAO_PENAS/CHACAO_PENAS_20260422_12L.png", "CHACAO_PENAS/CHACAO_PENAS_20260422_15L.png", "CHACAO_PENAS/CHACAO_PENAS_20260422_18L.png", "CHACAO_PENAS/CHACAO_PENAS_20260422_21L.png", "CHACAO_PENAS/CHACAO_PENAS_20260423_00L.png", "CHACAO_PENAS/CHACAO_PENAS_20260423_03L.png"]};
-const ALERTAS = {"PM_RELONCAVI": [{"dia": "2026-04-13", "txt": "Sin señal relevante."}, {"dia": "2026-04-14", "txt": "<a href=\"https://meteoarmada.directemar.cl/meteo/site/edic/base/port/inicio_liviana.html\" target=\"_blank\">Verificar aviso oficial</a>"}, {"dia": "2026-04-15", "txt": "Sin señal relevante."}, {"dia": "2026-04-16", "txt": "Sin señal relevante."}, {"dia": "2026-04-17", "txt": "Sin señal relevante."}, {"dia": "2026-04-18", "txt": "Sin señal relevante."}], "GUAFO": [{"dia": "2026-04-13", "txt": "<a href=\"https://meteoarmada.directemar.cl/meteo/site/edic/base/port/inicio_liviana.html\" target=\"_blank\">Verificar aviso oficial</a>"}, {"dia": "2026-04-14", "txt": "<a href=\"https://meteoarmada.directemar.cl/meteo/site/edic/base/port/inicio_liviana.html\" target=\"_blank\">Verificar aviso oficial</a>"}, {"dia": "2026-04-15", "txt": "Sin señal relevante."}, {"dia": "2026-04-16", "txt": "<a href=\"https://meteoarmada.directemar.cl/meteo/site/edic/base/port/inicio_liviana.html\" target=\"_blank\">Verificar aviso oficial</a>"}, {"dia": "2026-04-17", "txt": "Sin señal relevante."}, {"dia": "2026-04-18", "txt": "<a href=\"https://meteoarmada.directemar.cl/meteo/site/edic/base/port/inicio_liviana.html\" target=\"_blank\">Verificar aviso oficial</a>"}], "INCHEMO": [{"dia": "2026-04-13", "txt": "<a href=\"https://meteoarmada.directemar.cl/meteo/site/edic/base/port/inicio_liviana.html\" target=\"_blank\">Verificar aviso oficial</a>"}, {"dia": "2026-04-14", "txt": "<a href=\"https://meteoarmada.directemar.cl/meteo/site/edic/base/port/inicio_liviana.html\" target=\"_blank\">Verificar aviso oficial</a>"}, {"dia": "2026-04-15", "txt": "<a href=\"https://meteoarmada.directemar.cl/meteo/site/edic/base/port/inicio_liviana.html\" target=\"_blank\">Verificar aviso oficial</a>"}, {"dia": "2026-04-16", "txt": "<a href=\"https://meteoarmada.directemar.cl/meteo/site/edic/base/port/inicio_liviana.html\" target=\"_blank\">Verificar aviso oficial</a>"}, {"dia": "2026-04-17", "txt": "<a href=\"https://meteoarmada.directemar.cl/meteo/site/edic/base/port/inicio_liviana.html\" target=\"_blank\">Verificar aviso oficial</a>"}, {"dia": "2026-04-18", "txt": "<a href=\"https://meteoarmada.directemar.cl/meteo/site/edic/base/port/inicio_liviana.html\" target=\"_blank\">Verificar aviso oficial</a>"}], "PENAS": [{"dia": "2026-04-13", "txt": "<a href=\"https://meteoarmada.directemar.cl/meteo/site/edic/base/port/inicio_liviana.html\" target=\"_blank\">Verificar aviso oficial</a>"}, {"dia": "2026-04-14", "txt": "<a href=\"https://meteoarmada.directemar.cl/meteo/site/edic/base/port/inicio_liviana.html\" target=\"_blank\">Verificar aviso oficial</a>"}, {"dia": "2026-04-15", "txt": "<a href=\"https://meteoarmada.directemar.cl/meteo/site/edic/base/port/inicio_liviana.html\" target=\"_blank\">Verificar aviso oficial</a>"}, {"dia": "2026-04-16", "txt": "<a href=\"https://meteoarmada.directemar.cl/meteo/site/edic/base/port/inicio_liviana.html\" target=\"_blank\">Verificar aviso oficial</a>"}, {"dia": "2026-04-17", "txt": "<a href=\"https://meteoarmada.directemar.cl/meteo/site/edic/base/port/inicio_liviana.html\" target=\"_blank\">Verificar aviso oficial</a>"}, {"dia": "2026-04-18", "txt": "<a href=\"https://meteoarmada.directemar.cl/meteo/site/edic/base/port/inicio_liviana.html\" target=\"_blank\">Verificar aviso oficial</a>"}]};
+const ALERTAS = {"ACCESO_CANAL_CHACAO": [{"dia": "2026-04-13", "txt": "<a href=\"https://meteoarmada.directemar.cl/meteo/site/edic/base/port/inicio_liviana.html\" target=\"_blank\" class=\"aviso-btn cercano\">Verificar aviso oficial</a>"}, {"dia": "2026-04-14", "txt": "<a href=\"https://meteoarmada.directemar.cl/meteo/site/edic/base/port/inicio_liviana.html\" target=\"_blank\" class=\"aviso-btn cercano\">Verificar aviso oficial</a>"}, {"dia": "2026-04-15", "txt": "Sin señal relevante."}, {"dia": "2026-04-16", "txt": "<a href=\"https://meteoarmada.directemar.cl/meteo/site/edic/base/port/inicio_liviana.html\" target=\"_blank\" class=\"aviso-btn lejano\">Se prevé aviso. Verifique posteriormente</a>"}, {"dia": "2026-04-17", "txt": "Sin señal relevante."}, {"dia": "2026-04-18", "txt": "<a href=\"https://meteoarmada.directemar.cl/meteo/site/edic/base/port/inicio_liviana.html\" target=\"_blank\" class=\"aviso-btn lejano\">Se prevé aviso. Verifique posteriormente</a>"}], "PUERTO_MONTT_SENO_RELONCAVI": [{"dia": "2026-04-13", "txt": "Sin señal relevante."}, {"dia": "2026-04-14", "txt": "<a href=\"https://meteoarmada.directemar.cl/meteo/site/edic/base/port/inicio_liviana.html\" target=\"_blank\" class=\"aviso-btn cercano\">Verificar aviso oficial</a>"}, {"dia": "2026-04-15", "txt": "Sin señal relevante."}, {"dia": "2026-04-16", "txt": "Sin señal relevante."}, {"dia": "2026-04-17", "txt": "Sin señal relevante."}, {"dia": "2026-04-18", "txt": "Sin señal relevante."}], "AGUAS_INTERIORES_CH1_CH2": [{"dia": "2026-04-13", "txt": "<a href=\"https://meteoarmada.directemar.cl/meteo/site/edic/base/port/inicio_liviana.html\" target=\"_blank\" class=\"aviso-btn cercano\">Verificar aviso oficial</a>"}, {"dia": "2026-04-14", "txt": "<a href=\"https://meteoarmada.directemar.cl/meteo/site/edic/base/port/inicio_liviana.html\" target=\"_blank\" class=\"aviso-btn cercano\">Verificar aviso oficial</a>"}, {"dia": "2026-04-15", "txt": "Sin señal relevante."}, {"dia": "2026-04-16", "txt": "<a href=\"https://meteoarmada.directemar.cl/meteo/site/edic/base/port/inicio_liviana.html\" target=\"_blank\" class=\"aviso-btn lejano\">Se prevé aviso. Verifique posteriormente</a>"}, {"dia": "2026-04-17", "txt": "Sin señal relevante."}, {"dia": "2026-04-18", "txt": "<a href=\"https://meteoarmada.directemar.cl/meteo/site/edic/base/port/inicio_liviana.html\" target=\"_blank\" class=\"aviso-btn lejano\">Se prevé aviso. Verifique posteriormente</a>"}], "BOCA_GUAFO_GOLFO_CORCOVADO": [{"dia": "2026-04-13", "txt": "<a href=\"https://meteoarmada.directemar.cl/meteo/site/edic/base/port/inicio_liviana.html\" target=\"_blank\" class=\"aviso-btn cercano\">Verificar aviso oficial</a>"}, {"dia": "2026-04-14", "txt": "<a href=\"https://meteoarmada.directemar.cl/meteo/site/edic/base/port/inicio_liviana.html\" target=\"_blank\" class=\"aviso-btn cercano\">Verificar aviso oficial</a>"}, {"dia": "2026-04-15", "txt": "Sin señal relevante."}, {"dia": "2026-04-16", "txt": "<a href=\"https://meteoarmada.directemar.cl/meteo/site/edic/base/port/inicio_liviana.html\" target=\"_blank\" class=\"aviso-btn lejano\">Se prevé aviso. Verifique posteriormente</a>"}, {"dia": "2026-04-17", "txt": "Sin señal relevante."}, {"dia": "2026-04-18", "txt": "<a href=\"https://meteoarmada.directemar.cl/meteo/site/edic/base/port/inicio_liviana.html\" target=\"_blank\" class=\"aviso-btn lejano\">Se prevé aviso. Verifique posteriormente</a>"}], "CANAL_MORALEDA": [{"dia": "2026-04-13", "txt": "<a href=\"https://meteoarmada.directemar.cl/meteo/site/edic/base/port/inicio_liviana.html\" target=\"_blank\" class=\"aviso-btn cercano\">Verificar aviso oficial</a>"}, {"dia": "2026-04-14", "txt": "<a href=\"https://meteoarmada.directemar.cl/meteo/site/edic/base/port/inicio_liviana.html\" target=\"_blank\" class=\"aviso-btn cercano\">Verificar aviso oficial</a>"}, {"dia": "2026-04-15", "txt": "Sin señal relevante."}, {"dia": "2026-04-16", "txt": "<a href=\"https://meteoarmada.directemar.cl/meteo/site/edic/base/port/inicio_liviana.html\" target=\"_blank\" class=\"aviso-btn lejano\">Se prevé aviso. Verifique posteriormente</a>"}, {"dia": "2026-04-17", "txt": "Sin señal relevante."}, {"dia": "2026-04-18", "txt": "Sin señal relevante."}], "GOLFO_DE_PENAS": [{"dia": "2026-04-13", "txt": "<a href=\"https://meteoarmada.directemar.cl/meteo/site/edic/base/port/inicio_liviana.html\" target=\"_blank\" class=\"aviso-btn cercano\">Verificar aviso oficial</a>"}, {"dia": "2026-04-14", "txt": "<a href=\"https://meteoarmada.directemar.cl/meteo/site/edic/base/port/inicio_liviana.html\" target=\"_blank\" class=\"aviso-btn cercano\">Verificar aviso oficial</a>"}, {"dia": "2026-04-15", "txt": "<a href=\"https://meteoarmada.directemar.cl/meteo/site/edic/base/port/inicio_liviana.html\" target=\"_blank\" class=\"aviso-btn lejano\">Se prevé aviso. Verifique posteriormente</a>"}, {"dia": "2026-04-16", "txt": "<a href=\"https://meteoarmada.directemar.cl/meteo/site/edic/base/port/inicio_liviana.html\" target=\"_blank\" class=\"aviso-btn lejano\">Se prevé aviso. Verifique posteriormente</a>"}, {"dia": "2026-04-17", "txt": "<a href=\"https://meteoarmada.directemar.cl/meteo/site/edic/base/port/inicio_liviana.html\" target=\"_blank\" class=\"aviso-btn lejano\">Se prevé aviso. Verifique posteriormente</a>"}, {"dia": "2026-04-18", "txt": "<a href=\"https://meteoarmada.directemar.cl/meteo/site/edic/base/port/inicio_liviana.html\" target=\"_blank\" class=\"aviso-btn lejano\">Se prevé aviso. Verifique posteriormente</a>"}]};
+const LABELS = {"ACCESO_CANAL_CHACAO": "Acceso Canal Chacao", "PUERTO_MONTT_SENO_RELONCAVI": "Puerto Montt y Seno Reloncaví", "AGUAS_INTERIORES_CH1_CH2": "Aguas interiores Chiloé (CH1–CH2)", "BOCA_GUAFO_GOLFO_CORCOVADO": "Boca del Guafo – Golfo Corcovado", "CANAL_MORALEDA": "Canal Moraleda", "GOLFO_DE_PENAS": "Golfo de Penas"};
 
 let zone = Object.keys(FRAMES)[0];
 let frames = FRAMES[zone] || [];
@@ -232,19 +273,20 @@ function play() {
 function showAlert(punto) {
   const box = document.getElementById("alert-box");
   const data = ALERTAS[punto] || [];
+  const label = LABELS[punto] || punto;
 
   if (data.length === 0) {
-    box.innerHTML = "<div style='font-weight:800; margin-bottom:8px;'>" + punto + "</div><div class='sin-alerta'>Sin datos.</div>";
+    box.innerHTML = "<div style='font-weight:800; font-size:20px; margin-bottom:10px;'>" + label + "</div><div class='sin-alerta'>Sin datos.</div>";
     return;
   }
 
-  let html = `<div style="font-weight:800; margin-bottom:8px;">${punto}</div>`;
+  let html = `<div style="font-weight:800; font-size:20px; margin-bottom:10px;">${label}</div>`;
 
   data.forEach(d => {
     const cls = d.txt.toLowerCase().includes("sin señal relevante") ? "sin-alerta" : "con-alerta";
     html += `
       <div class="dia-item">
-        <div><b>${d.dia}</b></div>
+        <div class="dia-fecha">${d.dia}</div>
         <div class="${cls}">${d.txt}</div>
       </div>
     `;
@@ -277,7 +319,7 @@ for (const z of Object.keys(FRAMES)) {
 zoneSel.onchange = () => setZone(zoneSel.value);
 
 setZone(zoneSel.value = zone);
-showAlert("PM_RELONCAVI");
+showAlert("ACCESO_CANAL_CHACAO");
 play();
 </script>
 
