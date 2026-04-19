@@ -5,202 +5,133 @@
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>VISOR MAPA VIENTO 10 m</title>
 <style>
-  :root {
-    --bg:#071018;
-    --panel:#0c1824;
-    --panel2:#102130;
-    --line:#20374b;
-    --txt:#eef6ff;
-    --muted:#9fb7cc;
-    --btn:#17344f;
-  }
-
-  * {
-    box-sizing:border-box;
-  }
-
   html, body {
-    margin:0;
-    padding:0;
-    background:var(--bg);
-    color:var(--txt);
-    font-family:system-ui,Segoe UI,Roboto,Arial;
+    height: 100%;
+    margin: 0;
+    font-family: system-ui, Segoe UI, Roboto, Arial;
+    background:#0b0f14;
+    color:#e8eef7;
   }
 
-  .app {
-    width:100%;
-    max-width:1600px;
-    margin:0 auto;
-    padding:10px;
+  .wrap {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 380px 360px 1fr;
+    grid-template-rows: auto auto 1fr;
+    grid-template-areas:
+      "sidebar detail header"
+      "sidebar detail controls"
+      "sidebar detail stage";
+  }
+
+  .sidebar {
+    grid-area: sidebar;
+    padding: 14px 12px;
+    background:#0f1621;
+    border-right:1px solid #223146;
     display:flex;
     flex-direction:column;
-    gap:10px;
+    gap:12px;
+    overflow:auto;
   }
 
-  .topbar {
-    background:linear-gradient(180deg,#102130 0%,#0b1824 100%);
-    border:1px solid var(--line);
-    border-radius:20px;
-    padding:18px 20px;
-  }
-
-  .title {
-    font-size:1.15rem;
+  .sidebar-title {
     font-weight:800;
-    margin:0 0 4px 0;
+    font-size:18px;
+    margin-bottom:2px;
   }
 
-  .subtitle {
-    color:var(--muted);
-    font-size:.95rem;
-    margin:0 0 14px 0;
-  }
-
-  .topbar-row {
-    display:grid;
-    grid-template-columns: 1fr;
-    gap:10px;
-  }
-
-  .top-right {
-    display:flex;
-    align-items:center;
-    justify-content:flex-end;
-    gap:10px;
-    flex-wrap:wrap;
-  }
-
-  .label-inline {
-    font-weight:700;
-    color:var(--txt);
-  }
-
-  select {
-    background:var(--panel2);
-    color:var(--txt);
-    border:1px solid var(--line);
+  .alert-btn {
+    background:#1c2633;
+    color:#f4f8ff;
+    border:1px solid #3a516f;
     padding:12px 14px;
-    border-radius:14px;
-    font-weight:700;
-    font-size:1rem;
-    min-width:260px;
-  }
-
-  .main {
-    display:grid;
-    grid-template-columns: 1.55fr .95fr;
-    gap:12px;
-    align-items:start;
-  }
-
-  .card {
-    background:var(--panel);
-    border:1px solid var(--line);
-    border-radius:20px;
-    overflow:hidden;
-  }
-
-  .viewer-head {
-    display:flex;
-    justify-content:space-between;
-    align-items:flex-start;
-    gap:12px;
-    padding:18px 18px 14px 18px;
-    border-bottom:1px solid var(--line);
-  }
-
-  .viewer-title {
-    font-size:1.05rem;
-    font-weight:800;
-    margin:0 0 4px 0;
-  }
-
-  .viewer-time {
-    font-size:.95rem;
-    color:#b8d4f0;
-    margin:0;
-  }
-
-  .badge {
-    border:1px solid #31506d;
-    background:#173047;
-    color:#d6ebff;
-    padding:10px 14px;
-    border-radius:999px;
-    font-size:1rem;
-    font-weight:800;
-    white-space:nowrap;
-  }
-
-  .stage {
-    background:#02101c;
-    min-height:640px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    padding:12px;
-  }
-
-  #frame {
-    max-width:100%;
-    max-height:84vh;
-    width:auto;
-    height:auto;
-    object-fit:contain;
-    border-radius:14px;
-    box-shadow:0 10px 28px rgba(0,0,0,.35);
-    background:#111822;
-    display:block;
-  }
-
-  .controls {
-    display:grid;
-    grid-template-columns:repeat(4, 1fr);
-    gap:12px;
-    padding:14px 16px 16px 16px;
-    border-top:1px solid var(--line);
-  }
-
-  .ctrl-btn {
-    background:var(--btn);
-    color:#eef6ff;
-    border:1px solid #244766;
-    padding:16px 10px;
-    border-radius:16px;
+    border-radius:12px;
     cursor:pointer;
     font-weight:800;
-    font-size:1.05rem;
+    text-align:left;
+    font-size:15px;
+    line-height:1.25;
   }
 
-  .ctrl-btn:hover {
-    filter:brightness(1.08);
-  }
-
-  .side {
-    display:flex;
-    flex-direction:column;
-    gap:12px;
-  }
-
-  .panel-head {
-    padding:16px 18px 10px 18px;
-    font-size:1.05rem;
-    font-weight:800;
-  }
-
-  .panel-body {
-    padding:0 18px 18px 18px;
+  .alert-btn:hover {
+    filter: brightness(1.08);
   }
 
   .alert-box {
-    background:#271d26;
-    border:1px solid rgba(255,82,82,.35);
-    border-radius:18px;
-    padding:18px;
-    font-size:1.05rem;
+    grid-area: detail;
+    margin: 12px 10px;
+    background:#111822;
+    border:1px solid #2b3b52;
+    border-radius:12px;
+    padding:14px;
+    font-size:18px;
     line-height:1.55;
-    min-height:220px;
+    min-height:260px;
+    white-space:normal;
     overflow:auto;
+  }
+
+  header {
+    grid-area: header;
+    padding: 10px 12px 6px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap: 12px;
+    flex-wrap: wrap;
+    font-weight: 750;
+    font-size: 18px;
+  }
+
+  .top-controls {
+    grid-area: controls;
+    padding: 6px 12px 10px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .stage {
+    grid-area: stage;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding: 4px 10px 12px;
+  }
+
+  img {
+    max-width: min(88vw, 1100px);
+    max-height: 82vh;
+    object-fit: contain;
+    border-radius: 12px;
+    box-shadow: 0 10px 28px rgba(0,0,0,.45);
+    background: #111822;
+  }
+
+  button {
+    background:#1c2633;
+    color:#e8eef7;
+    border:1px solid #2b3b52;
+    padding:8px 12px;
+    border-radius:10px;
+    cursor:pointer;
+    font-weight:650;
+    font-size:15px;
+  }
+
+  button:hover { filter: brightness(1.08); }
+
+  select {
+    background:#111822;
+    color:#e8eef7;
+    border:1px solid #2b3b52;
+    padding:8px 12px;
+    border-radius:10px;
+    font-weight:650;
+    font-size:15px;
   }
 
   .dia-item {
@@ -216,20 +147,20 @@
   }
 
   .dia-fecha {
-    font-size:1.02rem;
+    font-size:18px;
     font-weight:800;
     margin-bottom:6px;
   }
 
   .sin-alerta {
     color:#96f0a2;
-    font-size:1rem;
+    font-size:17px;
     font-weight:700;
   }
 
   .con-alerta {
     color:#ffd6d6;
-    font-size:1rem;
+    font-size:17px;
     font-weight:800;
   }
 
@@ -238,7 +169,7 @@
     padding:8px 12px;
     border-radius:10px;
     text-decoration:none;
-    font-size:.98rem;
+    font-size:16px;
     font-weight:800;
     line-height:1.3;
     border:1px solid rgba(255,255,255,0.18);
@@ -256,226 +187,50 @@
     background:#d97706;
     color:#ffffff;
   }
-
-  .ref-box {
-    color:var(--muted);
-    font-size:.95rem;
-    line-height:1.5;
-  }
-
-  @media (max-width: 1080px) {
-    .main {
-      grid-template-columns:1fr;
-    }
-
-    .side {
-      order:1;
-    }
-
-    .main > .card:first-child {
-      order:2;
-    }
-
-    .stage {
-      min-height:420px;
-    }
-  }
-
-  @media (max-width: 700px) {
-    .app {
-      padding:6px;
-      gap:8px;
-    }
-
-    .topbar {
-      padding:12px;
-      border-radius:16px;
-    }
-
-    .title {
-      font-size:1rem;
-    }
-
-    .subtitle {
-      font-size:.85rem;
-      margin-bottom:10px;
-    }
-
-    .top-right {
-      justify-content:flex-start;
-      width:100%;
-    }
-
-    select {
-      min-width:100%;
-      width:100%;
-      font-size:1rem;
-      padding:12px;
-    }
-
-    .main {
-      gap:8px;
-    }
-
-    .side {
-      display:flex;
-      flex-direction:column;
-      gap:8px;
-    }
-
-    .side .card:nth-child(2) {
-      order:1;
-    }
-
-    .side .card:nth-child(1) {
-      order:2;
-    }
-
-    .side .card:nth-child(3) {
-      order:3;
-    }
-
-    .panel-head {
-      padding:12px 14px 8px 14px;
-      font-size:1rem;
-    }
-
-    .panel-body {
-      padding:0 14px 14px 14px;
-    }
-
-    .alert-box {
-      min-height:auto;
-      padding:14px;
-      font-size:.95rem;
-    }
-
-    .viewer-head {
-      padding:12px 14px 10px 14px;
-    }
-
-    .viewer-title {
-      font-size:1rem;
-    }
-
-    .viewer-time {
-      font-size:.85rem;
-    }
-
-    .badge {
-      padding:8px 12px;
-      font-size:.9rem;
-    }
-
-    .stage {
-      min-height:unset;
-      padding:8px;
-    }
-
-    #frame {
-      width:100%;
-      max-width:100%;
-      max-height:none;
-      height:auto;
-      border-radius:10px;
-    }
-
-    .controls {
-      gap:8px;
-      padding:10px 12px 12px 12px;
-    }
-
-    .ctrl-btn {
-      padding:12px 4px;
-      font-size:1rem;
-      border-radius:12px;
-    }
-
-    .ref-box {
-      font-size:.85rem;
-    }
-  }
 </style>
 </head>
 <body>
 
-<div class="app">
+<div class="wrap">
 
-  <div class="topbar">
-    <div class="title">Visor de Viento Operativo</div>
-    <div class="subtitle">Visualización tipo app</div>
+  <div class="sidebar">
+    <div class="sidebar-title">Zonas de interés</div>
 
-    <div class="topbar-row">
-      <div class="top-right">
-        <span class="label-inline">Zona:</span>
-        <select id="zone"></select>
-      </div>
-    </div>
+    <button class="alert-btn" onclick="showAlert('ACCESO_CANAL_CHACAO')">Acceso Canal Chacao</button>
+    <button class="alert-btn" onclick="showAlert('PUERTO_MONTT_SENO_RELONCAVI')">Puerto Montt y Seno Reloncaví</button>
+    <button class="alert-btn" onclick="showAlert('AGUAS_INTERIORES_CH1_CH2')">Aguas interiores Chiloé (CH1–CH2)</button>
+    <button class="alert-btn" onclick="showAlert('BOCA_GUAFO_GOLFO_CORCOVADO')">Boca del Guafo – Golfo Corcovado</button>
+    <button class="alert-btn" onclick="showAlert('CANAL_MORALEDA')">Canal Moraleda</button>
+    <button class="alert-btn" onclick="showAlert('GOLFO_DE_PENAS')">Golfo de Penas</button>
   </div>
 
-  <div class="main">
-
-    <div class="card">
-      <div class="viewer-head">
-        <div>
-          <div class="viewer-title" id="viewer-title">Mapa viento</div>
-          <div class="viewer-time" id="viewer-time">Hora</div>
-        </div>
-        <div class="badge" id="frame-count">0 / 0</div>
-      </div>
-
-      <div class="stage">
-        <img id="frame" alt="mapa" />
-      </div>
-
-      <div class="controls">
-        <button class="ctrl-btn" id="prev">⏮</button>
-        <button class="ctrl-btn" id="play">▶</button>
-        <button class="ctrl-btn" id="pause">⏸</button>
-        <button class="ctrl-btn" id="next">⏭</button>
-      </div>
-    </div>
-
-    <div class="side">
-      <div class="card">
-        <div class="panel-head">Zona de interés</div>
-        <div class="panel-body">
-          <select id="sector-select">
-            <option value="ACCESO_CANAL_CHACAO">Acceso Canal Chacao</option>
-              <option value="PUERTO_MONTT_SENO_RELONCAVI">Puerto Montt y Seno Reloncaví</option>
-              <option value="AGUAS_INTERIORES_CH1_CH2">Aguas interiores Chiloé (CH1–CH2)</option>
-              <option value="BOCA_GUAFO_GOLFO_CORCOVADO">Boca del Guafo – Golfo Corcovado</option>
-              <option value="CANAL_MORALEDA">Canal Moraleda</option>
-              <option value="GOLFO_DE_PENAS">Golfo de Penas</option>
-          </select>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="panel-head">Aviso operativo</div>
-        <div class="panel-body">
-          <div id="alert-box" class="alert-box">Selecciona una zona.</div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="panel-head">Referencia</div>
-        <div class="panel-body">
-          <div class="ref-box">
-            Rojo: aviso cercano.<br>
-            Naranjo: aviso previsto.<br>
-            Verde: sin señal relevante.
-          </div>
-        </div>
-      </div>
-    </div>
-
+  <div id="alert-box" class="alert-box">
+    Selecciona una zona.
   </div>
+
+  <header>
+    <span>VISOR MAPA VIENTO 10 m</span>
+    <span>Zona:
+      <select id="zone"></select>
+    </span>
+  </header>
+
+  <div class="top-controls">
+    <button id="prev">⟵ Atrás</button>
+    <button id="play">▶ Play</button>
+    <button id="pause">⏸ Pause</button>
+    <button id="next">Adelante ⟶</button>
+  </div>
+
+  <div class="stage">
+    <img id="frame" alt="mapa" />
+  </div>
+
 </div>
 
 <script>
-const FRAMES = {"CHILOE": ["CHILOE/CHILOE_VIENTO_20260419_06Z.png", "CHILOE/CHILOE_VIENTO_20260419_09Z.png", "CHILOE/CHILOE_VIENTO_20260419_12Z.png", "CHILOE/CHILOE_VIENTO_20260419_15Z.png", "CHILOE/CHILOE_VIENTO_20260419_18Z.png", "CHILOE/CHILOE_VIENTO_20260419_21Z.png", "CHILOE/CHILOE_VIENTO_20260420_00Z.png", "CHILOE/CHILOE_VIENTO_20260420_03Z.png", "CHILOE/CHILOE_VIENTO_20260420_06Z.png", "CHILOE/CHILOE_VIENTO_20260420_09Z.png", "CHILOE/CHILOE_VIENTO_20260420_12Z.png", "CHILOE/CHILOE_VIENTO_20260420_15Z.png", "CHILOE/CHILOE_VIENTO_20260420_18Z.png", "CHILOE/CHILOE_VIENTO_20260420_21Z.png", "CHILOE/CHILOE_VIENTO_20260421_00Z.png", "CHILOE/CHILOE_VIENTO_20260421_03Z.png", "CHILOE/CHILOE_VIENTO_20260421_06Z.png", "CHILOE/CHILOE_VIENTO_20260421_09Z.png", "CHILOE/CHILOE_VIENTO_20260421_12Z.png", "CHILOE/CHILOE_VIENTO_20260421_15Z.png", "CHILOE/CHILOE_VIENTO_20260421_18Z.png", "CHILOE/CHILOE_VIENTO_20260421_21Z.png", "CHILOE/CHILOE_VIENTO_20260422_00Z.png", "CHILOE/CHILOE_VIENTO_20260422_03Z.png", "CHILOE/CHILOE_VIENTO_20260422_06Z.png", "CHILOE/CHILOE_VIENTO_20260422_09Z.png", "CHILOE/CHILOE_VIENTO_20260422_12Z.png", "CHILOE/CHILOE_VIENTO_20260422_15Z.png", "CHILOE/CHILOE_VIENTO_20260422_18Z.png", "CHILOE/CHILOE_VIENTO_20260422_21Z.png", "CHILOE/CHILOE_VIENTO_20260423_00Z.png", "CHILOE/CHILOE_VIENTO_20260423_03Z.png", "CHILOE/CHILOE_VIENTO_20260423_06Z.png", "CHILOE/CHILOE_VIENTO_20260423_09Z.png", "CHILOE/CHILOE_VIENTO_20260423_12Z.png", "CHILOE/CHILOE_VIENTO_20260423_15Z.png", "CHILOE/CHILOE_VIENTO_20260423_18Z.png", "CHILOE/CHILOE_VIENTO_20260423_21Z.png", "CHILOE/CHILOE_VIENTO_20260424_00Z.png", "CHILOE/CHILOE_VIENTO_20260424_03Z.png", "CHILOE/CHILOE_VIENTO_20260424_06Z.png", "CHILOE/CHILOE_VIENTO_20260424_09Z.png", "CHILOE/CHILOE_VIENTO_20260424_12Z.png", "CHILOE/CHILOE_VIENTO_20260424_15Z.png", "CHILOE/CHILOE_VIENTO_20260424_18Z.png", "CHILOE/CHILOE_VIENTO_20260424_21Z.png", "CHILOE/CHILOE_VIENTO_20260425_00Z.png", "CHILOE/CHILOE_VIENTO_20260425_03Z.png", "CHILOE/CHILOE_VIENTO_20260425_06Z.png", "CHILOE/CHILOE_VIENTO_20260425_09Z.png", "CHILOE/CHILOE_VIENTO_20260425_12Z.png", "CHILOE/CHILOE_VIENTO_20260425_15Z.png", "CHILOE/CHILOE_VIENTO_20260425_18Z.png", "CHILOE/CHILOE_VIENTO_20260425_21Z.png", "CHILOE/CHILOE_VIENTO_20260426_00Z.png", "CHILOE/CHILOE_VIENTO_20260426_03Z.png", "CHILOE/CHILOE_VIENTO_20260426_06Z.png", "CHILOE/CHILOE_VIENTO_20260426_09Z.png", "CHILOE/CHILOE_VIENTO_20260426_12Z.png", "CHILOE/CHILOE_VIENTO_20260426_15Z.png", "CHILOE/CHILOE_VIENTO_20260426_18Z.png", "CHILOE/CHILOE_VIENTO_20260426_21Z.png", "CHILOE/CHILOE_VIENTO_20260427_00Z.png", "CHILOE/CHILOE_VIENTO_20260427_03Z.png", "CHILOE/CHILOE_VIENTO_20260427_06Z.png", "CHILOE/CHILOE_VIENTO_20260427_09Z.png", "CHILOE/CHILOE_VIENTO_20260427_12Z.png", "CHILOE/CHILOE_VIENTO_20260427_15Z.png", "CHILOE/CHILOE_VIENTO_20260427_18Z.png", "CHILOE/CHILOE_VIENTO_20260427_21Z.png", "CHILOE/CHILOE_VIENTO_20260428_00Z.png", "CHILOE/CHILOE_VIENTO_20260428_03Z.png", "CHILOE/CHILOE_VIENTO_20260428_06Z.png", "CHILOE/CHILOE_VIENTO_20260428_09Z.png", "CHILOE/CHILOE_VIENTO_20260428_12Z.png", "CHILOE/CHILOE_VIENTO_20260428_15Z.png", "CHILOE/CHILOE_VIENTO_20260428_18Z.png", "CHILOE/CHILOE_VIENTO_20260428_21Z.png", "CHILOE/CHILOE_VIENTO_20260429_00Z.png", "CHILOE/CHILOE_VIENTO_20260429_03Z.png", "CHILOE/CHILOE_VIENTO_20260429_06Z.png"], "CHACAO_PENAS": ["CHACAO_PENAS/CHACAO_PENAS_20260419_03L.png", "CHACAO_PENAS/CHACAO_PENAS_20260419_06L.png", "CHACAO_PENAS/CHACAO_PENAS_20260419_09L.png", "CHACAO_PENAS/CHACAO_PENAS_20260419_12L.png", "CHACAO_PENAS/CHACAO_PENAS_20260419_15L.png", "CHACAO_PENAS/CHACAO_PENAS_20260419_18L.png", "CHACAO_PENAS/CHACAO_PENAS_20260419_21L.png", "CHACAO_PENAS/CHACAO_PENAS_20260420_00L.png", "CHACAO_PENAS/CHACAO_PENAS_20260420_03L.png", "CHACAO_PENAS/CHACAO_PENAS_20260420_06L.png", "CHACAO_PENAS/CHACAO_PENAS_20260420_09L.png", "CHACAO_PENAS/CHACAO_PENAS_20260420_12L.png", "CHACAO_PENAS/CHACAO_PENAS_20260420_15L.png", "CHACAO_PENAS/CHACAO_PENAS_20260420_18L.png", "CHACAO_PENAS/CHACAO_PENAS_20260420_21L.png", "CHACAO_PENAS/CHACAO_PENAS_20260421_00L.png", "CHACAO_PENAS/CHACAO_PENAS_20260421_03L.png", "CHACAO_PENAS/CHACAO_PENAS_20260421_06L.png", "CHACAO_PENAS/CHACAO_PENAS_20260421_09L.png", "CHACAO_PENAS/CHACAO_PENAS_20260421_12L.png", "CHACAO_PENAS/CHACAO_PENAS_20260421_15L.png", "CHACAO_PENAS/CHACAO_PENAS_20260421_18L.png", "CHACAO_PENAS/CHACAO_PENAS_20260421_21L.png", "CHACAO_PENAS/CHACAO_PENAS_20260422_00L.png", "CHACAO_PENAS/CHACAO_PENAS_20260422_03L.png", "CHACAO_PENAS/CHACAO_PENAS_20260422_06L.png", "CHACAO_PENAS/CHACAO_PENAS_20260422_09L.png", "CHACAO_PENAS/CHACAO_PENAS_20260422_12L.png", "CHACAO_PENAS/CHACAO_PENAS_20260422_15L.png", "CHACAO_PENAS/CHACAO_PENAS_20260422_18L.png", "CHACAO_PENAS/CHACAO_PENAS_20260422_21L.png", "CHACAO_PENAS/CHACAO_PENAS_20260423_00L.png", "CHACAO_PENAS/CHACAO_PENAS_20260423_03L.png", "CHACAO_PENAS/CHACAO_PENAS_20260423_06L.png", "CHACAO_PENAS/CHACAO_PENAS_20260423_09L.png", "CHACAO_PENAS/CHACAO_PENAS_20260423_12L.png", "CHACAO_PENAS/CHACAO_PENAS_20260423_15L.png", "CHACAO_PENAS/CHACAO_PENAS_20260423_18L.png", "CHACAO_PENAS/CHACAO_PENAS_20260423_21L.png", "CHACAO_PENAS/CHACAO_PENAS_20260424_00L.png", "CHACAO_PENAS/CHACAO_PENAS_20260424_03L.png", "CHACAO_PENAS/CHACAO_PENAS_20260424_06L.png", "CHACAO_PENAS/CHACAO_PENAS_20260424_09L.png", "CHACAO_PENAS/CHACAO_PENAS_20260424_12L.png", "CHACAO_PENAS/CHACAO_PENAS_20260424_15L.png", "CHACAO_PENAS/CHACAO_PENAS_20260424_18L.png", "CHACAO_PENAS/CHACAO_PENAS_20260424_21L.png", "CHACAO_PENAS/CHACAO_PENAS_20260425_00L.png", "CHACAO_PENAS/CHACAO_PENAS_20260425_03L.png", "CHACAO_PENAS/CHACAO_PENAS_20260425_06L.png", "CHACAO_PENAS/CHACAO_PENAS_20260425_09L.png", "CHACAO_PENAS/CHACAO_PENAS_20260425_12L.png", "CHACAO_PENAS/CHACAO_PENAS_20260425_15L.png", "CHACAO_PENAS/CHACAO_PENAS_20260425_18L.png", "CHACAO_PENAS/CHACAO_PENAS_20260425_21L.png", "CHACAO_PENAS/CHACAO_PENAS_20260426_00L.png", "CHACAO_PENAS/CHACAO_PENAS_20260426_03L.png", "CHACAO_PENAS/CHACAO_PENAS_20260426_06L.png", "CHACAO_PENAS/CHACAO_PENAS_20260426_09L.png", "CHACAO_PENAS/CHACAO_PENAS_20260426_12L.png", "CHACAO_PENAS/CHACAO_PENAS_20260426_15L.png", "CHACAO_PENAS/CHACAO_PENAS_20260426_18L.png", "CHACAO_PENAS/CHACAO_PENAS_20260426_21L.png", "CHACAO_PENAS/CHACAO_PENAS_20260427_00L.png", "CHACAO_PENAS/CHACAO_PENAS_20260427_03L.png", "CHACAO_PENAS/CHACAO_PENAS_20260427_06L.png", "CHACAO_PENAS/CHACAO_PENAS_20260427_09L.png", "CHACAO_PENAS/CHACAO_PENAS_20260427_12L.png", "CHACAO_PENAS/CHACAO_PENAS_20260427_15L.png", "CHACAO_PENAS/CHACAO_PENAS_20260427_18L.png", "CHACAO_PENAS/CHACAO_PENAS_20260427_21L.png", "CHACAO_PENAS/CHACAO_PENAS_20260428_00L.png", "CHACAO_PENAS/CHACAO_PENAS_20260428_03L.png", "CHACAO_PENAS/CHACAO_PENAS_20260428_06L.png", "CHACAO_PENAS/CHACAO_PENAS_20260428_09L.png", "CHACAO_PENAS/CHACAO_PENAS_20260428_12L.png", "CHACAO_PENAS/CHACAO_PENAS_20260428_15L.png", "CHACAO_PENAS/CHACAO_PENAS_20260428_18L.png", "CHACAO_PENAS/CHACAO_PENAS_20260428_21L.png", "CHACAO_PENAS/CHACAO_PENAS_20260429_00L.png", "CHACAO_PENAS/CHACAO_PENAS_20260429_03L.png"]};
-const ALERTAS = {"ACCESO_CANAL_CHACAO": [{"dia": "2026-04-19", "txt": "Sin señal relevante."}, {"dia": "2026-04-20", "txt": "Sin señal relevante."}, {"dia": "2026-04-21", "txt": "Sin señal relevante."}, {"dia": "2026-04-22", "txt": "Sin señal relevante."}, {"dia": "2026-04-23", "txt": "Sin señal relevante."}, {"dia": "2026-04-24", "txt": "Sin señal relevante."}], "PUERTO_MONTT_SENO_RELONCAVI": [{"dia": "2026-04-19", "txt": "Sin señal relevante."}, {"dia": "2026-04-20", "txt": "Sin señal relevante."}, {"dia": "2026-04-21", "txt": "Sin señal relevante."}, {"dia": "2026-04-22", "txt": "Sin señal relevante."}, {"dia": "2026-04-23", "txt": "Sin señal relevante."}, {"dia": "2026-04-24", "txt": "Sin señal relevante."}], "AGUAS_INTERIORES_CH1_CH2": [{"dia": "2026-04-19", "txt": "Sin señal relevante."}, {"dia": "2026-04-20", "txt": "Sin señal relevante."}, {"dia": "2026-04-21", "txt": "Sin señal relevante."}, {"dia": "2026-04-22", "txt": "Sin señal relevante."}, {"dia": "2026-04-23", "txt": "<a href=\"https://meteoarmada.directemar.cl/meteo/site/edic/base/port/inicio_liviana.html\" target=\"_blank\" class=\"aviso-btn lejano\">Se prevé aviso de MAL TIEMPO</a>"}, {"dia": "2026-04-24", "txt": "Sin señal relevante."}], "BOCA_GUAFO_GOLFO_CORCOVADO": [{"dia": "2026-04-19", "txt": "Sin señal relevante."}, {"dia": "2026-04-20", "txt": "Sin señal relevante."}, {"dia": "2026-04-21", "txt": "Sin señal relevante."}, {"dia": "2026-04-22", "txt": "Sin señal relevante."}, {"dia": "2026-04-23", "txt": "<a href=\"https://meteoarmada.directemar.cl/meteo/site/edic/base/port/inicio_liviana.html\" target=\"_blank\" class=\"aviso-btn lejano\">Se prevé aviso de MAL TIEMPO</a>"}, {"dia": "2026-04-24", "txt": "Sin señal relevante."}], "CANAL_MORALEDA": [{"dia": "2026-04-19", "txt": "Sin señal relevante."}, {"dia": "2026-04-20", "txt": "Sin señal relevante."}, {"dia": "2026-04-21", "txt": "<a href=\"https://meteoarmada.directemar.cl/meteo/site/edic/base/port/inicio_liviana.html\" target=\"_blank\" class=\"aviso-btn lejano\">Se prevé aviso de MAL TIEMPO</a>"}, {"dia": "2026-04-22", "txt": "Sin señal relevante."}, {"dia": "2026-04-23", "txt": "<a href=\"https://meteoarmada.directemar.cl/meteo/site/edic/base/port/inicio_liviana.html\" target=\"_blank\" class=\"aviso-btn lejano\">Se prevé aviso de MAL TIEMPO</a>"}, {"dia": "2026-04-24", "txt": "Sin señal relevante."}], "GOLFO_DE_PENAS": [{"dia": "2026-04-19", "txt": "Sin señal relevante."}, {"dia": "2026-04-20", "txt": "<a href=\"https://meteoarmada.directemar.cl/meteo/site/edic/base/port/inicio_liviana.html\" target=\"_blank\" class=\"aviso-btn cercano\">Ver aviso oficial</a>"}, {"dia": "2026-04-21", "txt": "<a href=\"https://meteoarmada.directemar.cl/meteo/site/edic/base/port/inicio_liviana.html\" target=\"_blank\" class=\"aviso-btn lejano\">Se prevé aviso de MAL TIEMPO</a>"}, {"dia": "2026-04-22", "txt": "<a href=\"https://meteoarmada.directemar.cl/meteo/site/edic/base/port/inicio_liviana.html\" target=\"_blank\" class=\"aviso-btn lejano\">Se prevé aviso de MAL TIEMPO</a>"}, {"dia": "2026-04-23", "txt": "<a href=\"https://meteoarmada.directemar.cl/meteo/site/edic/base/port/inicio_liviana.html\" target=\"_blank\" class=\"aviso-btn lejano\">Se prevé aviso de MAL TIEMPO</a>"}, {"dia": "2026-04-24", "txt": "Sin señal relevante."}]};
+const FRAMES = {"CHILOE": ["CHILOE/CHILOE_VIENTO_20260418_18Z.png", "CHILOE/CHILOE_VIENTO_20260418_21Z.png", "CHILOE/CHILOE_VIENTO_20260419_00Z.png", "CHILOE/CHILOE_VIENTO_20260419_03Z.png", "CHILOE/CHILOE_VIENTO_20260419_06Z.png", "CHILOE/CHILOE_VIENTO_20260419_09Z.png", "CHILOE/CHILOE_VIENTO_20260419_12Z.png", "CHILOE/CHILOE_VIENTO_20260419_15Z.png", "CHILOE/CHILOE_VIENTO_20260419_18Z.png", "CHILOE/CHILOE_VIENTO_20260419_21Z.png", "CHILOE/CHILOE_VIENTO_20260420_00Z.png", "CHILOE/CHILOE_VIENTO_20260420_03Z.png", "CHILOE/CHILOE_VIENTO_20260420_06Z.png", "CHILOE/CHILOE_VIENTO_20260420_09Z.png", "CHILOE/CHILOE_VIENTO_20260420_12Z.png", "CHILOE/CHILOE_VIENTO_20260420_15Z.png", "CHILOE/CHILOE_VIENTO_20260420_18Z.png", "CHILOE/CHILOE_VIENTO_20260420_21Z.png", "CHILOE/CHILOE_VIENTO_20260421_00Z.png", "CHILOE/CHILOE_VIENTO_20260421_03Z.png", "CHILOE/CHILOE_VIENTO_20260421_06Z.png", "CHILOE/CHILOE_VIENTO_20260421_09Z.png", "CHILOE/CHILOE_VIENTO_20260421_12Z.png", "CHILOE/CHILOE_VIENTO_20260421_15Z.png", "CHILOE/CHILOE_VIENTO_20260421_18Z.png", "CHILOE/CHILOE_VIENTO_20260421_21Z.png", "CHILOE/CHILOE_VIENTO_20260422_00Z.png", "CHILOE/CHILOE_VIENTO_20260422_03Z.png", "CHILOE/CHILOE_VIENTO_20260422_06Z.png", "CHILOE/CHILOE_VIENTO_20260422_09Z.png", "CHILOE/CHILOE_VIENTO_20260422_12Z.png", "CHILOE/CHILOE_VIENTO_20260422_15Z.png", "CHILOE/CHILOE_VIENTO_20260422_18Z.png", "CHILOE/CHILOE_VIENTO_20260422_21Z.png", "CHILOE/CHILOE_VIENTO_20260423_00Z.png", "CHILOE/CHILOE_VIENTO_20260423_03Z.png", "CHILOE/CHILOE_VIENTO_20260423_06Z.png", "CHILOE/CHILOE_VIENTO_20260423_09Z.png", "CHILOE/CHILOE_VIENTO_20260423_12Z.png", "CHILOE/CHILOE_VIENTO_20260423_15Z.png", "CHILOE/CHILOE_VIENTO_20260423_18Z.png", "CHILOE/CHILOE_VIENTO_20260423_21Z.png", "CHILOE/CHILOE_VIENTO_20260424_00Z.png", "CHILOE/CHILOE_VIENTO_20260424_03Z.png", "CHILOE/CHILOE_VIENTO_20260424_06Z.png", "CHILOE/CHILOE_VIENTO_20260424_09Z.png", "CHILOE/CHILOE_VIENTO_20260424_12Z.png", "CHILOE/CHILOE_VIENTO_20260424_15Z.png", "CHILOE/CHILOE_VIENTO_20260424_18Z.png", "CHILOE/CHILOE_VIENTO_20260424_21Z.png", "CHILOE/CHILOE_VIENTO_20260425_00Z.png", "CHILOE/CHILOE_VIENTO_20260425_03Z.png", "CHILOE/CHILOE_VIENTO_20260425_06Z.png", "CHILOE/CHILOE_VIENTO_20260425_09Z.png", "CHILOE/CHILOE_VIENTO_20260425_12Z.png", "CHILOE/CHILOE_VIENTO_20260425_15Z.png", "CHILOE/CHILOE_VIENTO_20260425_18Z.png", "CHILOE/CHILOE_VIENTO_20260425_21Z.png", "CHILOE/CHILOE_VIENTO_20260426_00Z.png", "CHILOE/CHILOE_VIENTO_20260426_03Z.png", "CHILOE/CHILOE_VIENTO_20260426_06Z.png", "CHILOE/CHILOE_VIENTO_20260426_09Z.png", "CHILOE/CHILOE_VIENTO_20260426_12Z.png", "CHILOE/CHILOE_VIENTO_20260426_15Z.png", "CHILOE/CHILOE_VIENTO_20260426_18Z.png", "CHILOE/CHILOE_VIENTO_20260426_21Z.png", "CHILOE/CHILOE_VIENTO_20260427_00Z.png", "CHILOE/CHILOE_VIENTO_20260427_03Z.png", "CHILOE/CHILOE_VIENTO_20260427_06Z.png", "CHILOE/CHILOE_VIENTO_20260427_09Z.png", "CHILOE/CHILOE_VIENTO_20260427_12Z.png", "CHILOE/CHILOE_VIENTO_20260427_15Z.png", "CHILOE/CHILOE_VIENTO_20260427_18Z.png", "CHILOE/CHILOE_VIENTO_20260427_21Z.png", "CHILOE/CHILOE_VIENTO_20260428_00Z.png", "CHILOE/CHILOE_VIENTO_20260428_03Z.png", "CHILOE/CHILOE_VIENTO_20260428_06Z.png", "CHILOE/CHILOE_VIENTO_20260428_09Z.png", "CHILOE/CHILOE_VIENTO_20260428_12Z.png", "CHILOE/CHILOE_VIENTO_20260428_15Z.png", "CHILOE/CHILOE_VIENTO_20260428_18Z.png"], "CHACAO_PENAS": ["CHACAO_PENAS/CHACAO_PENAS_20260418_15L.png", "CHACAO_PENAS/CHACAO_PENAS_20260418_18L.png", "CHACAO_PENAS/CHACAO_PENAS_20260418_21L.png", "CHACAO_PENAS/CHACAO_PENAS_20260419_00L.png", "CHACAO_PENAS/CHACAO_PENAS_20260419_03L.png", "CHACAO_PENAS/CHACAO_PENAS_20260419_06L.png", "CHACAO_PENAS/CHACAO_PENAS_20260419_09L.png", "CHACAO_PENAS/CHACAO_PENAS_20260419_12L.png", "CHACAO_PENAS/CHACAO_PENAS_20260419_15L.png", "CHACAO_PENAS/CHACAO_PENAS_20260419_18L.png", "CHACAO_PENAS/CHACAO_PENAS_20260419_21L.png", "CHACAO_PENAS/CHACAO_PENAS_20260420_00L.png", "CHACAO_PENAS/CHACAO_PENAS_20260420_03L.png", "CHACAO_PENAS/CHACAO_PENAS_20260420_06L.png", "CHACAO_PENAS/CHACAO_PENAS_20260420_09L.png", "CHACAO_PENAS/CHACAO_PENAS_20260420_12L.png", "CHACAO_PENAS/CHACAO_PENAS_20260420_15L.png", "CHACAO_PENAS/CHACAO_PENAS_20260420_18L.png", "CHACAO_PENAS/CHACAO_PENAS_20260420_21L.png", "CHACAO_PENAS/CHACAO_PENAS_20260421_00L.png", "CHACAO_PENAS/CHACAO_PENAS_20260421_03L.png", "CHACAO_PENAS/CHACAO_PENAS_20260421_06L.png", "CHACAO_PENAS/CHACAO_PENAS_20260421_09L.png", "CHACAO_PENAS/CHACAO_PENAS_20260421_12L.png", "CHACAO_PENAS/CHACAO_PENAS_20260421_15L.png", "CHACAO_PENAS/CHACAO_PENAS_20260421_18L.png", "CHACAO_PENAS/CHACAO_PENAS_20260421_21L.png", "CHACAO_PENAS/CHACAO_PENAS_20260422_00L.png", "CHACAO_PENAS/CHACAO_PENAS_20260422_03L.png", "CHACAO_PENAS/CHACAO_PENAS_20260422_06L.png", "CHACAO_PENAS/CHACAO_PENAS_20260422_09L.png", "CHACAO_PENAS/CHACAO_PENAS_20260422_12L.png", "CHACAO_PENAS/CHACAO_PENAS_20260422_15L.png", "CHACAO_PENAS/CHACAO_PENAS_20260422_18L.png", "CHACAO_PENAS/CHACAO_PENAS_20260422_21L.png", "CHACAO_PENAS/CHACAO_PENAS_20260423_00L.png", "CHACAO_PENAS/CHACAO_PENAS_20260423_03L.png", "CHACAO_PENAS/CHACAO_PENAS_20260423_06L.png", "CHACAO_PENAS/CHACAO_PENAS_20260423_09L.png", "CHACAO_PENAS/CHACAO_PENAS_20260423_12L.png", "CHACAO_PENAS/CHACAO_PENAS_20260423_15L.png", "CHACAO_PENAS/CHACAO_PENAS_20260423_18L.png", "CHACAO_PENAS/CHACAO_PENAS_20260423_21L.png", "CHACAO_PENAS/CHACAO_PENAS_20260424_00L.png", "CHACAO_PENAS/CHACAO_PENAS_20260424_03L.png", "CHACAO_PENAS/CHACAO_PENAS_20260424_06L.png", "CHACAO_PENAS/CHACAO_PENAS_20260424_09L.png", "CHACAO_PENAS/CHACAO_PENAS_20260424_12L.png", "CHACAO_PENAS/CHACAO_PENAS_20260424_15L.png", "CHACAO_PENAS/CHACAO_PENAS_20260424_18L.png", "CHACAO_PENAS/CHACAO_PENAS_20260424_21L.png", "CHACAO_PENAS/CHACAO_PENAS_20260425_00L.png", "CHACAO_PENAS/CHACAO_PENAS_20260425_03L.png", "CHACAO_PENAS/CHACAO_PENAS_20260425_06L.png", "CHACAO_PENAS/CHACAO_PENAS_20260425_09L.png", "CHACAO_PENAS/CHACAO_PENAS_20260425_12L.png", "CHACAO_PENAS/CHACAO_PENAS_20260425_15L.png", "CHACAO_PENAS/CHACAO_PENAS_20260425_18L.png", "CHACAO_PENAS/CHACAO_PENAS_20260425_21L.png", "CHACAO_PENAS/CHACAO_PENAS_20260426_00L.png", "CHACAO_PENAS/CHACAO_PENAS_20260426_03L.png", "CHACAO_PENAS/CHACAO_PENAS_20260426_06L.png", "CHACAO_PENAS/CHACAO_PENAS_20260426_09L.png", "CHACAO_PENAS/CHACAO_PENAS_20260426_12L.png", "CHACAO_PENAS/CHACAO_PENAS_20260426_15L.png", "CHACAO_PENAS/CHACAO_PENAS_20260426_18L.png", "CHACAO_PENAS/CHACAO_PENAS_20260426_21L.png", "CHACAO_PENAS/CHACAO_PENAS_20260427_00L.png", "CHACAO_PENAS/CHACAO_PENAS_20260427_03L.png", "CHACAO_PENAS/CHACAO_PENAS_20260427_06L.png", "CHACAO_PENAS/CHACAO_PENAS_20260427_09L.png", "CHACAO_PENAS/CHACAO_PENAS_20260427_12L.png", "CHACAO_PENAS/CHACAO_PENAS_20260427_15L.png", "CHACAO_PENAS/CHACAO_PENAS_20260427_18L.png", "CHACAO_PENAS/CHACAO_PENAS_20260427_21L.png", "CHACAO_PENAS/CHACAO_PENAS_20260428_00L.png", "CHACAO_PENAS/CHACAO_PENAS_20260428_03L.png", "CHACAO_PENAS/CHACAO_PENAS_20260428_06L.png", "CHACAO_PENAS/CHACAO_PENAS_20260428_09L.png", "CHACAO_PENAS/CHACAO_PENAS_20260428_12L.png", "CHACAO_PENAS/CHACAO_PENAS_20260428_15L.png"]};
+const ALERTAS = {"ACCESO_CANAL_CHACAO": [{"dia": "2026-04-18", "txt": "Sin señal relevante."}, {"dia": "2026-04-19", "txt": "Sin señal relevante."}, {"dia": "2026-04-20", "txt": "Sin señal relevante."}, {"dia": "2026-04-21", "txt": "Sin señal relevante."}, {"dia": "2026-04-22", "txt": "Sin señal relevante."}, {"dia": "2026-04-23", "txt": "Sin señal relevante."}], "PUERTO_MONTT_SENO_RELONCAVI": [{"dia": "2026-04-18", "txt": "Sin señal relevante."}, {"dia": "2026-04-19", "txt": "Sin señal relevante."}, {"dia": "2026-04-20", "txt": "Sin señal relevante."}, {"dia": "2026-04-21", "txt": "Sin señal relevante."}, {"dia": "2026-04-22", "txt": "Sin señal relevante."}, {"dia": "2026-04-23", "txt": "Sin señal relevante."}], "AGUAS_INTERIORES_CH1_CH2": [{"dia": "2026-04-18", "txt": "Sin señal relevante."}, {"dia": "2026-04-19", "txt": "Sin señal relevante."}, {"dia": "2026-04-20", "txt": "Sin señal relevante."}, {"dia": "2026-04-21", "txt": "Sin señal relevante."}, {"dia": "2026-04-22", "txt": "Sin señal relevante."}, {"dia": "2026-04-23", "txt": "Sin señal relevante."}], "BOCA_GUAFO_GOLFO_CORCOVADO": [{"dia": "2026-04-18", "txt": "<a href=\"https://meteoarmada.directemar.cl/meteo/site/edic/base/port/inicio_liviana.html\" target=\"_blank\" class=\"aviso-btn cercano\">Ver aviso oficial<br><small>Condición tendería a declinar durante la tarde.</small></a>"}, {"dia": "2026-04-19", "txt": "Sin señal relevante."}, {"dia": "2026-04-20", "txt": "Sin señal relevante."}, {"dia": "2026-04-21", "txt": "Sin señal relevante."}, {"dia": "2026-04-22", "txt": "Sin señal relevante."}, {"dia": "2026-04-23", "txt": "Sin señal relevante."}], "CANAL_MORALEDA": [{"dia": "2026-04-18", "txt": "Sin señal relevante."}, {"dia": "2026-04-19", "txt": "Sin señal relevante."}, {"dia": "2026-04-20", "txt": "Sin señal relevante."}, {"dia": "2026-04-21", "txt": "<a href=\"https://meteoarmada.directemar.cl/meteo/site/edic/base/port/inicio_liviana.html\" target=\"_blank\" class=\"aviso-btn lejano\">Se prevé aviso de MAL TIEMPO</a>"}, {"dia": "2026-04-22", "txt": "Sin señal relevante."}, {"dia": "2026-04-23", "txt": "Sin señal relevante."}], "GOLFO_DE_PENAS": [{"dia": "2026-04-18", "txt": "Sin señal relevante."}, {"dia": "2026-04-19", "txt": "Sin señal relevante."}, {"dia": "2026-04-20", "txt": "<a href=\"https://meteoarmada.directemar.cl/meteo/site/edic/base/port/inicio_liviana.html\" target=\"_blank\" class=\"aviso-btn lejano\">Se prevé aviso de MAL TIEMPO</a>"}, {"dia": "2026-04-21", "txt": "<a href=\"https://meteoarmada.directemar.cl/meteo/site/edic/base/port/inicio_liviana.html\" target=\"_blank\" class=\"aviso-btn lejano\">Se prevé aviso de MAL TIEMPO</a>"}, {"dia": "2026-04-22", "txt": "<a href=\"https://meteoarmada.directemar.cl/meteo/site/edic/base/port/inicio_liviana.html\" target=\"_blank\" class=\"aviso-btn lejano\">Se prevé aviso de MAL TIEMPO</a>"}, {"dia": "2026-04-23", "txt": "<a href=\"https://meteoarmada.directemar.cl/meteo/site/edic/base/port/inicio_liviana.html\" target=\"_blank\" class=\"aviso-btn lejano\">Se prevé aviso de MAL TIEMPO</a>"}]};
 const LABELS = {"ACCESO_CANAL_CHACAO": "Acceso Canal Chacao", "PUERTO_MONTT_SENO_RELONCAVI": "Puerto Montt y Seno Reloncaví", "AGUAS_INTERIORES_CH1_CH2": "Aguas interiores Chiloé (CH1–CH2)", "BOCA_GUAFO_GOLFO_CORCOVADO": "Boca del Guafo – Golfo Corcovado", "CANAL_MORALEDA": "Canal Moraleda", "GOLFO_DE_PENAS": "Golfo de Penas"};
 
 let zone = Object.keys(FRAMES)[0];
@@ -485,10 +240,6 @@ let timer = null;
 
 const img = document.getElementById("frame");
 const zoneSel = document.getElementById("zone");
-const viewerTitle = document.getElementById("viewer-title");
-const viewerTime = document.getElementById("viewer-time");
-const frameCount = document.getElementById("frame-count");
-const sectorSelect = document.getElementById("sector-select");
 
 function stop() {
   if (timer) {
@@ -497,35 +248,14 @@ function stop() {
   }
 }
 
-function parseFechaDesdeNombre(src) {
-  const m = src.match(/(\d{8})_(\d{2})(Z|L)/);
-  if (!m) return "";
-  const ymd = m[1];
-  const hh = m[2];
-  const suf = m[3];
-  return `${ymd.slice(0,4)}-${ymd.slice(4,6)}-${ymd.slice(6,8)} ${hh} ${
-    suf === "Z" ? "UTC" : "Hora local"
-  }`;
-}
-
-function zoneLabel(z) {
-  if (z === "CHILOE") return "Chiloé Interior";
-  if (z === "CHACAO_PENAS") return "Chacao a Golfo de Penas";
-  return z;
-}
-
 function setZone(z) {
   stop();
   zone = z;
   frames = FRAMES[zone] || [];
   i = 0;
 
-  viewerTitle.textContent = zoneLabel(zone);
-
   if (frames.length === 0) {
     img.removeAttribute("src");
-    viewerTime.textContent = "Sin imágenes";
-    frameCount.textContent = "0 / 0";
     return;
   }
   show(0);
@@ -535,8 +265,6 @@ function show(k) {
   if (frames.length === 0) return;
   i = (k + frames.length) % frames.length;
   img.src = frames[i];
-  viewerTime.textContent = parseFechaDesdeNombre(frames[i]);
-  frameCount.textContent = `${i + 1} / ${frames.length}`;
 }
 
 function play() {
@@ -555,7 +283,7 @@ function showAlert(punto) {
     return;
   }
 
-  let html = `<div style="font-weight:800; font-size:1.15rem; margin-bottom:12px;">${label}</div>`;
+  let html = `<div style="font-weight:800; font-size:20px; margin-bottom:10px;">${label}</div>`;
 
   data.forEach(d => {
     const cls = d.txt.toLowerCase().includes("sin señal relevante") ? "sin-alerta" : "con-alerta";
@@ -587,16 +315,14 @@ document.addEventListener("keydown", (e) => {
 for (const z of Object.keys(FRAMES)) {
   const opt = document.createElement("option");
   opt.value = z;
-  opt.textContent = zoneLabel(z);
+  opt.textContent = z;
   zoneSel.appendChild(opt);
 }
 
 zoneSel.onchange = () => setZone(zoneSel.value);
-sectorSelect.onchange = () => showAlert(sectorSelect.value);
 
 setZone(zoneSel.value = zone);
-sectorSelect.value = "ACCESO_CANAL_CHACAO";
-showAlert(sectorSelect.value);
+showAlert("ACCESO_CANAL_CHACAO");
 play();
 </script>
 
