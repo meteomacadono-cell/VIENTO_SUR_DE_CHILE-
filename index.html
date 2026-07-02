@@ -1,0 +1,728 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>VISOR MAPA VIENTO 10 m</title>
+<style>
+  :root {
+    --bg:#ffffff;
+    --panel:#ffffff;
+    --panel2:#f7f7f7;
+    --line:#20374b;
+    --txt:#111111;
+    --muted:#444444;
+    --btn:#17344f;
+  }
+
+  * {
+    box-sizing:border-box;
+  }
+
+  html, body {
+    margin:0;
+    padding:0;
+    background:var(--bg);
+    color:#111111;
+    font-family:system-ui,Segoe UI,Roboto,Arial;
+  }
+
+  .app {
+    width:100%;
+    max-width:1600px;
+    margin:0 auto;
+    padding:10px;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+  }
+
+  .info-card {
+    margin-bottom: 10px;
+  }
+
+  .topbar {
+    background:linear-gradient(180deg,#102130 0%,#0b1824 100%);
+    border:1px solid var(--line);
+    border-radius:20px;
+    padding:18px 20px;
+  }
+
+  .title {
+    font-size:1.15rem;
+    font-weight:800;
+    margin:0 0 4px 0;
+  }
+
+  .subtitle {
+    color:var(--muted);
+    font-size:.95rem;
+    margin:0 0 14px 0;
+  }
+
+  .topbar-row {
+    display:grid;
+    grid-template-columns: 1fr;
+    gap:10px;
+  }
+
+  .top-right {
+    display:flex;
+    align-items:center;
+    justify-content:flex-end;
+    gap:10px;
+    flex-wrap:wrap;
+  }
+
+  .label-inline {
+    font-weight:700;
+    color:var(--txt);
+  }
+
+  select {
+    background:var(--panel2);
+    color:var(--txt);
+    border:1px solid var(--line);
+    padding:12px 14px;
+    border-radius:14px;
+    font-weight:700;
+    font-size:1rem;
+    min-width:260px;
+  }
+
+  .main {
+    display:grid;
+    grid-template-columns: 1.55fr .95fr;
+    gap:12px;
+    align-items:start;
+  }
+
+  .card {
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:20px;
+    overflow:hidden;
+  }
+
+  .viewer-head {
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:12px;
+    padding:18px 18px 14px 18px;
+    border-bottom:1px solid var(--line);
+  }
+
+  .viewer-title {
+    font-size:1.05rem;
+    font-weight:800;
+    margin:0 0 4px 0;
+  }
+
+  .viewer-time {
+    text-align:center;
+    font-size:1rem;
+    font-weight:700;
+    color:#111111;
+    margin:12px 0 10px 0;
+  }
+
+  .badge {
+    border:1px solid #31506d;
+    background:#173047;
+    color:#d6ebff;
+    padding:10px 14px;
+    border-radius:999px;
+    font-size:1rem;
+    font-weight:800;
+    white-space:nowrap;
+  }
+
+  .stage {
+    background:#02101c;
+    min-height:640px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:12px;
+  }
+
+  #frame {
+    max-width:100%;
+    max-height:none;
+    width:auto;
+    height:auto;
+    object-fit:contain;
+    border-radius:14px;
+    box-shadow:0 10px 28px rgba(0,0,0,.35);
+    background:#111822;
+    display:block;
+  }
+
+  .controls {
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:12px;
+    padding:14px 16px 16px 16px;
+    border-top:1px solid var(--line);
+  }
+
+  .ctrl-btn {
+    background:var(--btn);
+    color:#eef6ff;
+    border:1px solid #244766;
+    padding:16px 10px;
+    border-radius:16px;
+    cursor:pointer;
+    font-weight:800;
+    font-size:1.05rem;
+  }
+
+  .ctrl-btn:hover {
+    filter:brightness(1.08);
+  }
+
+  .side {
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+  }
+
+  .panel-head {
+    padding:16px 18px 10px 18px;
+    font-size:1.05rem;
+    font-weight:800;
+  }
+
+  .panel-body {
+    padding:0 18px 18px 18px;
+  }
+
+  .alert-box {
+    background:#ffffff;
+    border:1px solid rgba(255,82,82,.35);
+    border-radius:18px;
+    padding:18px;
+    font-size:1.05rem;
+    line-height:1.55;
+    min-height:220px;
+    overflow:auto;
+    color:#000000;
+  }
+
+  .alert-box * {
+    color:#000000 !important;
+  }
+
+  .dia-item {
+    margin-bottom:12px;
+    padding-bottom:12px;
+    border-bottom:1px solid #233247;
+  }
+
+  .dia-item:last-child {
+    border-bottom:none;
+    margin-bottom:0;
+    padding-bottom:0;
+  }
+
+  .dia-fecha {
+    font-size:1.02rem;
+    font-weight:800;
+    margin-bottom:6px;
+  }
+
+  .sin-alerta {
+    color:#000000;
+    font-size:1rem;
+    font-weight:700;
+  }
+
+  .con-alerta {
+    color:#000000;
+    font-size:1rem;
+    font-weight:800;
+  }
+
+  .aviso-btn {
+    display:inline-block;
+    padding:8px 12px;
+    border-radius:10px;
+    text-decoration:none;
+    font-size:.98rem;
+    font-weight:800;
+    line-height:1.3;
+    border:1px solid rgba(255,255,255,0.18);
+    box-shadow:none;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:geometricPrecision;
+  }
+
+  .aviso-btn.cercano {
+    background:#b71c1c;
+    color:#ffffff;
+  }
+
+  .aviso-btn.lejano {
+    background:#d97706;
+  }
+
+  .aviso-rojo {
+    display:inline-block;
+    padding:8px 12px;
+    border-radius:10px;
+    background:#b71c1c;
+    color:#ffffff;
+    font-size:0.98rem;
+    font-weight:800;
+    line-height:1.3;
+  }
+
+  .aviso-verde {
+    display:inline-block;
+    padding:8px 12px;
+    border-radius:10px;
+    background:#2ecc71;
+    color:#ffffff;
+    font-size:0.98rem;
+    font-weight:800;
+    line-height:1.3;
+  }
+  .ref-box {
+    color:var(--muted);
+    font-size:.95rem;
+    line-height:1.5;
+  }
+
+  .collapsible {
+    cursor:pointer;
+    user-select:none;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+  }
+
+  .collapsible:hover {
+    filter:brightness(0.93);
+  }
+
+  .collapse-arrow {
+    font-size:.85rem;
+    color:var(--muted);
+  }
+
+  @media (max-width: 1080px) {
+    .main {
+      grid-template-columns:1fr;
+    }
+
+    .side {
+      order:1;
+    }
+
+    .main > .card:first-child {
+      order:2;
+    }
+
+    .stage {
+      min-height:420px;
+    }
+  }
+
+  @media (max-width: 700px) {
+    .app {
+      padding:6px;
+      gap:8px;
+    }
+
+    .topbar {
+      padding:12px;
+      border-radius:16px;
+    }
+
+    .title {
+      font-size:1rem;
+    }
+
+    .subtitle {
+      font-size:.85rem;
+      margin-bottom:10px;
+    }
+
+    .top-right {
+      justify-content:flex-start;
+      width:100%;
+    }
+
+    select {
+      min-width:100%;
+      width:100%;
+      font-size:1rem;
+      padding:12px;
+    }
+
+    .main {
+      gap:8px;
+    }
+
+    .side {
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+    }
+
+    .side .card:nth-child(1) {
+      order: 1;
+    }
+
+    .side .card:nth-child(2) {
+      order: 2;
+    }
+
+    .side .card:nth-child(3) {
+      order: 3;
+    }
+
+    .panel-head {
+      padding:12px 14px 8px 14px;
+      font-size:1rem;
+    }
+
+    .panel-body {
+      padding:0 14px 14px 14px;
+    }
+
+    .alert-box {
+      min-height:auto;
+      padding:14px;
+      font-size:.95rem;
+    }
+
+    .viewer-head {
+      padding:12px 14px 10px 14px;
+    }
+
+    .viewer-title {
+      font-size:1rem;
+    }
+
+    .viewer-time {
+      font-size:.85rem;
+    }
+
+    .badge {
+      padding:8px 12px;
+      font-size:.9rem;
+    }
+
+    .stage {
+      min-height:unset;
+      padding:8px;
+    }
+
+    #frame {
+      width:100%;
+      max-width:100%;
+      max-height:none;
+      height:auto;
+      border-radius:10px;
+    }
+
+    .controls {
+      gap:8px;
+      padding:10px 12px 12px 12px;
+    }
+
+    .ctrl-btn {
+      padding:12px 4px;
+      font-size:1rem;
+      border-radius:12px;
+    }
+
+    .ref-box {
+      font-size:.85rem;
+    }
+  }
+</style>
+</head>
+<body>
+
+
+<div class="app">
+<div class="card info-card">
+  <div class="panel-head">Información del visor</div>
+  <div class="panel-body">
+    <div class="ref-box">
+      Resumen operativo de condiciones asociadas a eventos de viento en aguas interiores y área oceánica,
+      basado en pronóstico GFS 10 m con criterio de persistencia. Horizonte: 5 días.<br>
+      No reemplaza avisos oficiales emitidos por la Autoridad Marítima.
+    </div>
+  </div>
+</div>
+
+  <div class="main">
+
+    <div class="card">
+
+      <div class="panel-body">
+        <select id="zone"></select>
+      </div>
+      <div class="viewer-time" id="viewer-time">Hora local</div>
+      <div class="stage">
+        <img id="frame" alt="mapa" />
+      </div>
+
+      <div class="controls">
+        <button class="ctrl-btn" id="prev">⏮</button>
+        <button class="ctrl-btn" id="play">▶</button>
+        <button class="ctrl-btn" id="pause">⏸</button>
+        <button class="ctrl-btn" id="next">⏭</button>
+      </div>
+    </div>
+
+    <div class="side">
+
+      <div class="card">
+        <div class="panel-head">Referencia</div>
+        <div class="panel-body">
+          <div class="ref-box">
+            Rojo: mal tiempo / temporal / viento fuerte / aviso especial.<br>
+            Verde: sin aviso previsto.<br>
+            Criterios: N/NE/NW ≥25 kt → Mal tiempo. N/NE/NW ≥34 kt → Temporal.<br>
+            S/SE/SW ≥25 kt → Aviso viento sur / Viento fuerte.
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="panel-head collapsible" onclick="togglePanel('panel-interior','arrow-interior')">
+          <span>Resumen — aguas interiores (5 días)</span>
+          <span id="arrow-interior" class="collapse-arrow">▼</span>
+        </div>
+        <div id="panel-interior" class="panel-body" style="display:none">
+          <div id="resumen-box" class="alert-box">Cargando...</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="panel-head collapsible" onclick="togglePanel('panel-oceanico','arrow-oceanico')">
+          <span>Resumen — área oceánica (5 días)</span>
+          <span id="arrow-oceanico" class="collapse-arrow">▼</span>
+        </div>
+        <div id="panel-oceanico" class="panel-body" style="display:none">
+          <div id="resumen-oceanico-box" class="alert-box">Cargando...</div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+<script>
+const FRAMES = {"CHILOE": ["CHILOE/CHILOE_20260702_05L.png", "CHILOE/CHILOE_20260702_08L.png", "CHILOE/CHILOE_20260702_11L.png", "CHILOE/CHILOE_20260702_14L.png", "CHILOE/CHILOE_20260702_17L.png", "CHILOE/CHILOE_20260702_20L.png", "CHILOE/CHILOE_20260702_23L.png", "CHILOE/CHILOE_20260703_02L.png", "CHILOE/CHILOE_20260703_05L.png", "CHILOE/CHILOE_20260703_08L.png", "CHILOE/CHILOE_20260703_11L.png", "CHILOE/CHILOE_20260703_14L.png", "CHILOE/CHILOE_20260703_17L.png", "CHILOE/CHILOE_20260703_20L.png", "CHILOE/CHILOE_20260703_23L.png", "CHILOE/CHILOE_20260704_02L.png", "CHILOE/CHILOE_20260704_05L.png", "CHILOE/CHILOE_20260704_08L.png", "CHILOE/CHILOE_20260704_11L.png", "CHILOE/CHILOE_20260704_14L.png", "CHILOE/CHILOE_20260704_17L.png", "CHILOE/CHILOE_20260704_20L.png", "CHILOE/CHILOE_20260704_23L.png", "CHILOE/CHILOE_20260705_02L.png", "CHILOE/CHILOE_20260705_05L.png", "CHILOE/CHILOE_20260705_08L.png", "CHILOE/CHILOE_20260705_11L.png", "CHILOE/CHILOE_20260705_14L.png", "CHILOE/CHILOE_20260705_17L.png", "CHILOE/CHILOE_20260705_20L.png", "CHILOE/CHILOE_20260705_23L.png", "CHILOE/CHILOE_20260706_02L.png", "CHILOE/CHILOE_20260706_05L.png", "CHILOE/CHILOE_20260706_08L.png", "CHILOE/CHILOE_20260706_11L.png", "CHILOE/CHILOE_20260706_14L.png", "CHILOE/CHILOE_20260706_17L.png", "CHILOE/CHILOE_20260706_20L.png"], "CHACAO_PENAS": ["CHACAO_PENAS/CHACAO_PENAS_20260702_05L.png", "CHACAO_PENAS/CHACAO_PENAS_20260702_08L.png", "CHACAO_PENAS/CHACAO_PENAS_20260702_11L.png", "CHACAO_PENAS/CHACAO_PENAS_20260702_14L.png", "CHACAO_PENAS/CHACAO_PENAS_20260702_17L.png", "CHACAO_PENAS/CHACAO_PENAS_20260702_20L.png", "CHACAO_PENAS/CHACAO_PENAS_20260702_23L.png", "CHACAO_PENAS/CHACAO_PENAS_20260703_02L.png", "CHACAO_PENAS/CHACAO_PENAS_20260703_05L.png", "CHACAO_PENAS/CHACAO_PENAS_20260703_08L.png", "CHACAO_PENAS/CHACAO_PENAS_20260703_11L.png", "CHACAO_PENAS/CHACAO_PENAS_20260703_14L.png", "CHACAO_PENAS/CHACAO_PENAS_20260703_17L.png", "CHACAO_PENAS/CHACAO_PENAS_20260703_20L.png", "CHACAO_PENAS/CHACAO_PENAS_20260703_23L.png", "CHACAO_PENAS/CHACAO_PENAS_20260704_02L.png", "CHACAO_PENAS/CHACAO_PENAS_20260704_05L.png", "CHACAO_PENAS/CHACAO_PENAS_20260704_08L.png", "CHACAO_PENAS/CHACAO_PENAS_20260704_11L.png", "CHACAO_PENAS/CHACAO_PENAS_20260704_14L.png", "CHACAO_PENAS/CHACAO_PENAS_20260704_17L.png", "CHACAO_PENAS/CHACAO_PENAS_20260704_20L.png", "CHACAO_PENAS/CHACAO_PENAS_20260704_23L.png", "CHACAO_PENAS/CHACAO_PENAS_20260705_02L.png", "CHACAO_PENAS/CHACAO_PENAS_20260705_05L.png", "CHACAO_PENAS/CHACAO_PENAS_20260705_08L.png", "CHACAO_PENAS/CHACAO_PENAS_20260705_11L.png", "CHACAO_PENAS/CHACAO_PENAS_20260705_14L.png", "CHACAO_PENAS/CHACAO_PENAS_20260705_17L.png", "CHACAO_PENAS/CHACAO_PENAS_20260705_20L.png", "CHACAO_PENAS/CHACAO_PENAS_20260705_23L.png", "CHACAO_PENAS/CHACAO_PENAS_20260706_02L.png", "CHACAO_PENAS/CHACAO_PENAS_20260706_05L.png", "CHACAO_PENAS/CHACAO_PENAS_20260706_08L.png", "CHACAO_PENAS/CHACAO_PENAS_20260706_11L.png", "CHACAO_PENAS/CHACAO_PENAS_20260706_14L.png", "CHACAO_PENAS/CHACAO_PENAS_20260706_17L.png", "CHACAO_PENAS/CHACAO_PENAS_20260706_20L.png"]};
+const RESUMEN_INTERIOR = {"2026-07-06": [["MAL TIEMPO", "en Canal Chacao"], ["MAL TIEMPO", "de Islas Chauques a Golfo Corcovado"], ["TEMPORAL", "en Boca del Guafo"], ["MAL TIEMPO", "en Canal Moraleda"]]};
+const RESUMEN_OCEANICO = {"2026-07-05": [["MAL TIEMPO OCEÁNICO", "en Islas Guamblin a Golfo de Penas"]], "2026-07-06": [["MAL TIEMPO OCEÁNICO", "de Corral a Boca del Guafo"], ["TEMPORAL OCEÁNICO", "de Boca del Guafo a Golfo de Penas"]]};
+
+// Links oficiales SERVIMET por categoría de alerta
+const AVISOS_OFICIALES = {"MAL TIEMPO": "https://meteoarmada.directemar.cl/meteo/aviso-de-mal-tiempo-centro-met-puerto-montt", "MAL TIEMPO OCEÁNICO": "https://meteoarmada.directemar.cl/meteo/aviso-de-mal-tiempo-centro-met-puerto-montt", "TEMPORAL": "https://meteoarmada.directemar.cl/meteo/aviso-de-temporal-centro-met-puerto-montt", "TEMPORAL OCEÁNICO": "https://meteoarmada.directemar.cl/meteo/aviso-de-temporal-centro-met-puerto-montt", "AVISO VIENTO FUERTE": "https://meteoarmada.directemar.cl/meteo/aviso-especial-viento-fuerte-2", "VIENTO FUERTE OCEÁNICO": "https://meteoarmada.directemar.cl/meteo/aviso-especial-viento-fuerte-2", "AVISO ESPECIAL POR VIENTO SUR": "https://meteoarmada.directemar.cl/meteo/aviso-especial-viento-fuerte-2", "VIENTO SUR OCEÁNICO": "https://meteoarmada.directemar.cl/meteo/aviso-especial-viento-fuerte-2"};
+
+let zone = Object.keys(FRAMES)[0];
+let frames = FRAMES[zone] || [];
+let i = 0;
+let timer = null;
+
+const img = document.getElementById("frame");
+const zoneSel = document.getElementById("zone");
+
+
+function stop() {
+  if (timer) {
+    clearInterval(timer);
+    timer = null;
+  }
+}
+
+function parseFechaDesdeNombre(src) {
+  const m = src.match(/(\d{8})_(\d{2})(Z|L)/);
+  if (!m) return "";
+
+  const ymd = m[1];
+  const hh = m[2];
+  const suf = m[3];
+
+  const year = ymd.slice(0,4);
+  const month = ymd.slice(4,6);
+  const day = ymd.slice(6,8);
+
+  const meses = {
+    "01":"enero","02":"febrero","03":"marzo","04":"abril",
+    "05":"mayo","06":"junio","07":"julio","08":"agosto",
+    "09":"septiembre","10":"octubre","11":"noviembre","12":"diciembre"
+  };
+
+  return `${parseInt(day)} ${meses[month]} ${year} ${hh} ${
+    suf === "Z" ? "UTC" : "Hora local"
+  }`;
+}
+
+function zoneLabel(z) {
+  if (z === "CHILOE") return "Chiloé Interior";
+  if (z === "CHACAO_PENAS") return "Chacao a Golfo de Penas";
+  return z;
+}
+
+function setZone(z) {
+  stop();
+  zone = z;
+  frames = FRAMES[zone] || [];
+  i = 0;
+
+  if (frames.length === 0) {
+    img.removeAttribute("src");
+    return;
+  }
+  show(0);
+}
+
+
+
+function show(k) {
+  if (frames.length === 0) return;
+
+  i = (k + frames.length) % frames.length;
+
+  const src = frames[i];
+
+  // evita que el navegador use imagen vieja en caché
+  img.src = src + "?v=" + Date.now();
+
+  document.getElementById("viewer-time").textContent =
+      parseFechaDesdeNombre(src);
+
+   console.log("Cargando mapa:", src);
+}
+
+function play() {
+  if (frames.length === 0) return;
+  stop();
+  timer = setInterval(() => show(i + 1), 500);
+}
+
+function formatearFechaISO(iso) {
+  const partes = iso.split("-");
+  const y = Number(partes[0]);
+  const m = Number(partes[1]) - 1;
+  const d = Number(partes[2]);
+
+  const fecha = new Date(y, m, d);
+
+  const dias = [
+    "domingo", "lunes", "martes", "miércoles",
+    "jueves", "viernes", "sábado"
+  ];
+
+  const meses = [
+    "enero", "febrero", "marzo", "abril",
+    "mayo", "junio", "julio", "agosto",
+    "septiembre", "octubre", "noviembre", "diciembre"
+  ];
+
+  return `${dias[fecha.getDay()]} ${d} de ${meses[m]} ${y}`;
+}
+function togglePanel(panelId, arrowId) {
+  const panel = document.getElementById(panelId);
+  const arrow = document.getElementById(arrowId);
+  if (panel.style.display === "none") {
+    panel.style.display = "block";
+    if (arrow) arrow.textContent = "▲";
+  } else {
+    panel.style.display = "none";
+    if (arrow) arrow.textContent = "▼";
+  }
+}
+
+
+function renderResumen(data, boxId, maxDias) {
+  const box = document.getElementById(boxId);
+  const hoy = new Date();
+  hoy.setHours(0, 0, 0, 0);
+
+  const dias = Object.keys(data)
+    .filter(d => {
+      const f = new Date(d + "T00:00:00");
+      const diff = (f - hoy) / 86400000;
+      return diff >= 0 && diff < maxDias;
+    })
+    .sort();
+
+  if (dias.length === 0) {
+    box.innerHTML = '<span class="aviso-verde">Sin aviso previsto en el período.</span>';
+    return;
+  }
+
+  let html = "";
+  for (const dia of dias) {
+    const eventos = data[dia] || [];
+    html += `<div class="dia-item"><div class="dia-fecha">${formatearFechaISO(dia)}</div>`;
+    if (eventos.length === 0) {
+      html += `<span class="aviso-verde">Sin aviso previsto</span>`;
+    } else {
+      for (const [cat, desc] of eventos) {
+        const urlOficial = AVISOS_OFICIALES[cat];
+        const diffDia = (new Date(dia + "T00:00:00") - hoy) / 86400000;
+        let linkHtml = "";
+        if (urlOficial && diffDia < 2) {
+          linkHtml = `<div style="margin-top:5px;font-size:0.88rem;">
+            <a href="${urlOficial}" target="_blank" style="color:#ff5252;font-weight:700;text-decoration:underline;">
+              Ver aviso oficial SERVIMET →
+            </a>
+          </div>`;
+        }
+        html += `
+          <div class="aviso-rojo" style="margin-bottom:8px;display:block;">
+            <div style="font-weight:900;margin-bottom:3px;">${cat}</div>
+            <div style="font-size:0.95rem;font-weight:700;opacity:0.92;">${desc}</div>
+            ${linkHtml}
+          </div>`;
+      }
+    }
+    html += "</div>";
+  }
+  box.innerHTML = html;
+}
+document.getElementById("prev").onclick = () => { stop(); show(i - 1); };
+document.getElementById("next").onclick = () => { stop(); show(i + 1); };
+document.getElementById("pause").onclick = () => { stop(); };
+document.getElementById("play").onclick  = () => { play(); };
+
+document.addEventListener("keydown", (e) => {
+  if (e.key === "ArrowLeft") { stop(); show(i - 1); }
+  if (e.key === "ArrowRight") { stop(); show(i + 1); }
+  if (e.code === "Space") {
+    e.preventDefault();
+    if (timer) stop(); else play();
+  }
+});
+
+for (const z of Object.keys(FRAMES)) {
+  const opt = document.createElement("option");
+  opt.value = z;
+  opt.textContent = zoneLabel(z);
+  zoneSel.appendChild(opt);
+}
+
+zoneSel.onchange = () => {
+  setZone(zoneSel.value);
+  play();
+};
+
+setZone(zoneSel.value = zone);
+renderResumen(RESUMEN_INTERIOR, "resumen-box", 5);
+renderResumen(RESUMEN_OCEANICO, "resumen-oceanico-box", 5);
+play();
+</script>
+
+</body>
+</html>
+
+<!-- build: 1782992325.037804 -->

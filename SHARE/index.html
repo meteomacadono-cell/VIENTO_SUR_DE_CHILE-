@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>VISOR MAPA VIENTO 10 m</title>
+<style>
+  html, body {
+    height: 100%;
+    margin: 0;
+    font-family: system-ui, Segoe UI, Roboto, Arial;
+    background:#0b0f14;
+    color:#e8eef7;
+  }
+
+  .wrap {
+    height: 100%;
+    display: grid;
+    grid-template-rows: auto auto 1fr;
+  }
+
+  header {
+    padding: 10px 12px 6px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap: 12px;
+    flex-wrap: wrap;
+    font-weight: 750;
+  }
+
+  .top-controls {
+    padding: 6px 12px 10px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .stage {
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding: 4px 10px 12px;
+  }
+
+  img {
+    max-width: min(92vw, 1000px);
+    max-height: 80vh;
+    object-fit: contain;
+    border-radius: 12px;
+    box-shadow: 0 10px 28px rgba(0,0,0,.45);
+    background: #111822;
+  }
+
+  button {
+    background:#1c2633;
+    color:#e8eef7;
+    border:1px solid #2b3b52;
+    padding:6px 10px;
+    border-radius:10px;
+    cursor:pointer;
+    font-weight:650;
+    font-size:13px;
+  }
+
+  button:hover { filter: brightness(1.08); }
+
+  select {
+    background:#111822;
+    color:#e8eef7;
+    border:1px solid #2b3b52;
+    padding:6px 10px;
+    border-radius:10px;
+    font-weight:650;
+    font-size:13px;
+  }
+
+
+
+  .hint {
+    font-size:12px;
+    opacity:.75;
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header>
+    <span>VISOR MAPA VIENTO 10 m</span>
+    <span>Zona:
+      <select id="zone"></select>
+    </span>
+  </header>
+
+  <div class="top-controls">
+    <button id="prev">⟵ Atrás</button>
+    <button id="play">▶ Play</button>
+    <button id="pause">⏸ Pause</button>
+    <button id="next">Adelante ⟶</button>
+
+    
+
+    
+  </div>
+
+  <div class="stage">
+    <img id="frame" alt="mapa" />
+  </div>
+
+</div>
+
+<script>
+const FRAMES = {'CHILOE': ['CHILOE/CHILOE_VIENTO_20260412_06Z.png', 'CHILOE/CHILOE_VIENTO_20260412_09Z.png', 'CHILOE/CHILOE_VIENTO_20260412_12Z.png', 'CHILOE/CHILOE_VIENTO_20260412_15Z.png', 'CHILOE/CHILOE_VIENTO_20260412_18Z.png', 'CHILOE/CHILOE_VIENTO_20260412_21Z.png', 'CHILOE/CHILOE_VIENTO_20260413_00Z.png', 'CHILOE/CHILOE_VIENTO_20260413_03Z.png', 'CHILOE/CHILOE_VIENTO_20260413_06Z.png', 'CHILOE/CHILOE_VIENTO_20260413_09Z.png', 'CHILOE/CHILOE_VIENTO_20260413_12Z.png', 'CHILOE/CHILOE_VIENTO_20260413_15Z.png', 'CHILOE/CHILOE_VIENTO_20260413_18Z.png', 'CHILOE/CHILOE_VIENTO_20260413_21Z.png', 'CHILOE/CHILOE_VIENTO_20260414_00Z.png', 'CHILOE/CHILOE_VIENTO_20260414_03Z.png', 'CHILOE/CHILOE_VIENTO_20260414_06Z.png', 'CHILOE/CHILOE_VIENTO_20260414_09Z.png', 'CHILOE/CHILOE_VIENTO_20260414_12Z.png', 'CHILOE/CHILOE_VIENTO_20260414_15Z.png', 'CHILOE/CHILOE_VIENTO_20260414_18Z.png', 'CHILOE/CHILOE_VIENTO_20260414_21Z.png', 'CHILOE/CHILOE_VIENTO_20260415_00Z.png', 'CHILOE/CHILOE_VIENTO_20260415_03Z.png', 'CHILOE/CHILOE_VIENTO_20260415_06Z.png', 'CHILOE/CHILOE_VIENTO_20260415_09Z.png', 'CHILOE/CHILOE_VIENTO_20260415_12Z.png', 'CHILOE/CHILOE_VIENTO_20260415_15Z.png', 'CHILOE/CHILOE_VIENTO_20260415_18Z.png', 'CHILOE/CHILOE_VIENTO_20260415_21Z.png'], 'CHACAO_PENAS': ['CHACAO_PENAS/CHACAO-PENAS_20260412_03L.png', 'CHACAO_PENAS/CHACAO-PENAS_20260412_06L.png', 'CHACAO_PENAS/CHACAO-PENAS_20260412_09L.png', 'CHACAO_PENAS/CHACAO-PENAS_20260412_12L.png', 'CHACAO_PENAS/CHACAO-PENAS_20260412_15L.png', 'CHACAO_PENAS/CHACAO-PENAS_20260412_18L.png', 'CHACAO_PENAS/CHACAO-PENAS_20260412_21L.png', 'CHACAO_PENAS/CHACAO-PENAS_20260413_00L.png', 'CHACAO_PENAS/CHACAO-PENAS_20260413_03L.png', 'CHACAO_PENAS/CHACAO-PENAS_20260413_06L.png', 'CHACAO_PENAS/CHACAO-PENAS_20260413_09L.png', 'CHACAO_PENAS/CHACAO-PENAS_20260413_12L.png', 'CHACAO_PENAS/CHACAO-PENAS_20260413_15L.png', 'CHACAO_PENAS/CHACAO-PENAS_20260413_18L.png', 'CHACAO_PENAS/CHACAO-PENAS_20260413_21L.png', 'CHACAO_PENAS/CHACAO-PENAS_20260414_00L.png', 'CHACAO_PENAS/CHACAO-PENAS_20260414_03L.png', 'CHACAO_PENAS/CHACAO-PENAS_20260414_06L.png', 'CHACAO_PENAS/CHACAO-PENAS_20260414_09L.png', 'CHACAO_PENAS/CHACAO-PENAS_20260414_12L.png', 'CHACAO_PENAS/CHACAO-PENAS_20260414_15L.png', 'CHACAO_PENAS/CHACAO-PENAS_20260414_18L.png', 'CHACAO_PENAS/CHACAO-PENAS_20260414_21L.png', 'CHACAO_PENAS/CHACAO-PENAS_20260415_00L.png', 'CHACAO_PENAS/CHACAO-PENAS_20260415_03L.png', 'CHACAO_PENAS/CHACAO-PENAS_20260415_06L.png', 'CHACAO_PENAS/CHACAO-PENAS_20260415_09L.png', 'CHACAO_PENAS/CHACAO-PENAS_20260415_12L.png', 'CHACAO_PENAS/CHACAO-PENAS_20260415_15L.png', 'CHACAO_PENAS/CHACAO-PENAS_20260415_18L.png', 'CHACAO_PENAS/CHACAO-PENAS_20260415_21L.png']};
+
+let zone = Object.keys(FRAMES)[0];
+let frames = FRAMES[zone] || [];
+let i = 0;
+let timer = null;
+
+const img = document.getElementById("frame");
+const zoneSel = document.getElementById("zone");
+
+function stop() {
+  if (timer) {
+    clearInterval(timer);
+    timer = null;
+  }
+}
+
+function setZone(z) {
+  stop();
+  zone = z;
+  frames = FRAMES[zone] || [];
+  i = 0;
+
+  if (frames.length === 0) {
+    img.removeAttribute("src");
+    
+    return;
+  }
+  show(0);
+}
+
+function show(k) {
+  if (frames.length === 0) return;
+  i = (k + frames.length) % frames.length;
+  img.src = frames[i];
+  counter.textContent = `${i+1} / ${frames.length}`;
+}
+
+function play() {
+  if (frames.length === 0) return;
+  stop();
+  timer = setInterval(() => show(i + 1), 500);
+}
+
+document.getElementById("prev").onclick = () => { stop(); show(i - 1); };
+document.getElementById("next").onclick = () => { stop(); show(i + 1); };
+document.getElementById("pause").onclick = () => { stop(); };
+document.getElementById("play").onclick  = () => { play(); };
+
+document.addEventListener("keydown", (e) => {
+  if (e.key === "ArrowLeft") { stop(); show(i-1); }
+  if (e.key === "ArrowRight") { stop(); show(i+1); }
+  if (e.code === "Space") {
+    e.preventDefault();
+    if (timer) stop(); else play();
+  }
+});
+
+for (const z of Object.keys(FRAMES)) {
+  const opt = document.createElement("option");
+  opt.value = z;
+  opt.textContent = z;
+  zoneSel.appendChild(opt);
+}
+zoneSel.onchange = () => setZone(zoneSel.value);
+
+setZone(zoneSel.value = zone);
+</script>
+
+</body>
+</html>
