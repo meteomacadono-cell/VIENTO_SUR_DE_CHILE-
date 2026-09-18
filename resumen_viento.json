@@ -1,0 +1,1983 @@
+{
+  "generated_at": "2026-04-12 11:51:54.122180",
+  "grib": "C:\\Users\\m_mac\\xygrib\\grib\\20260412_150734_GFS_P25_WW3_P50_06.grb2",
+  "zones": {
+    "CHILOE": {
+      "title": "Viento 10m — Chiloé Interior y Golfo Coronado",
+      "frames": [
+        {
+          "png_rel": "CHILOE/CHILOE_VIENTO_20260412_06Z.png",
+          "utc_time": "2026-04-12 06:00:00",
+          "local_time": "2026-04-12 03:00:00",
+          "dominant_dir": "SW",
+          "max_kt": 17.413373947143555,
+          "p75_kt": 15.23503303527832
+        },
+        {
+          "png_rel": "CHILOE/CHILOE_VIENTO_20260412_09Z.png",
+          "utc_time": "2026-04-12 09:00:00",
+          "local_time": "2026-04-12 06:00:00",
+          "dominant_dir": "SW",
+          "max_kt": 13.492490768432617,
+          "p75_kt": 10.48213005065918
+        },
+        {
+          "png_rel": "CHILOE/CHILOE_VIENTO_20260412_12Z.png",
+          "utc_time": "2026-04-12 12:00:00",
+          "local_time": "2026-04-12 09:00:00",
+          "dominant_dir": "SW",
+          "max_kt": 10.881563186645508,
+          "p75_kt": 8.50520133972168
+        },
+        {
+          "png_rel": "CHILOE/CHILOE_VIENTO_20260412_15Z.png",
+          "utc_time": "2026-04-12 15:00:00",
+          "local_time": "2026-04-12 12:00:00",
+          "dominant_dir": "SW",
+          "max_kt": 13.057149887084961,
+          "p75_kt": 6.862420082092285
+        },
+        {
+          "png_rel": "CHILOE/CHILOE_VIENTO_20260412_18Z.png",
+          "utc_time": "2026-04-12 18:00:00",
+          "local_time": "2026-04-12 15:00:00",
+          "dominant_dir": "W",
+          "max_kt": 14.544962882995605,
+          "p75_kt": 7.79243278503418
+        },
+        {
+          "png_rel": "CHILOE/CHILOE_VIENTO_20260412_21Z.png",
+          "utc_time": "2026-04-12 21:00:00",
+          "local_time": "2026-04-12 18:00:00",
+          "dominant_dir": "W",
+          "max_kt": 15.355998039245605,
+          "p75_kt": 7.709659099578857
+        },
+        {
+          "png_rel": "CHILOE/CHILOE_VIENTO_20260413_00Z.png",
+          "utc_time": "2026-04-13 00:00:00",
+          "local_time": "2026-04-12 21:00:00",
+          "dominant_dir": "W",
+          "max_kt": 16.860841751098633,
+          "p75_kt": 8.102598190307617
+        },
+        {
+          "png_rel": "CHILOE/CHILOE_VIENTO_20260413_03Z.png",
+          "utc_time": "2026-04-13 03:00:00",
+          "local_time": "2026-04-13 00:00:00",
+          "dominant_dir": "N",
+          "max_kt": 18.648033142089844,
+          "p75_kt": 8.634607315063477
+        },
+        {
+          "png_rel": "CHILOE/CHILOE_VIENTO_20260413_06Z.png",
+          "utc_time": "2026-04-13 06:00:00",
+          "local_time": "2026-04-13 03:00:00",
+          "dominant_dir": "N",
+          "max_kt": 21.075153350830078,
+          "p75_kt": 8.903173446655273
+        },
+        {
+          "png_rel": "CHILOE/CHILOE_VIENTO_20260413_09Z.png",
+          "utc_time": "2026-04-13 09:00:00",
+          "local_time": "2026-04-13 06:00:00",
+          "dominant_dir": "N",
+          "max_kt": 22.445337295532227,
+          "p75_kt": 11.628690719604492
+        },
+        {
+          "png_rel": "CHILOE/CHILOE_VIENTO_20260413_12Z.png",
+          "utc_time": "2026-04-13 12:00:00",
+          "local_time": "2026-04-13 09:00:00",
+          "dominant_dir": "N",
+          "max_kt": 24.045591354370117,
+          "p75_kt": 16.363555908203125
+        },
+        {
+          "png_rel": "CHILOE/CHILOE_VIENTO_20260413_15Z.png",
+          "utc_time": "2026-04-13 15:00:00",
+          "local_time": "2026-04-13 12:00:00",
+          "dominant_dir": "N",
+          "max_kt": 29.64190101623535,
+          "p75_kt": 21.4337215423584
+        },
+        {
+          "png_rel": "CHILOE/CHILOE_VIENTO_20260413_18Z.png",
+          "utc_time": "2026-04-13 18:00:00",
+          "local_time": "2026-04-13 15:00:00",
+          "dominant_dir": "N",
+          "max_kt": 35.04683303833008,
+          "p75_kt": 26.259788513183594
+        },
+        {
+          "png_rel": "CHILOE/CHILOE_VIENTO_20260413_21Z.png",
+          "utc_time": "2026-04-13 21:00:00",
+          "local_time": "2026-04-13 18:00:00",
+          "dominant_dir": "N",
+          "max_kt": 39.543087005615234,
+          "p75_kt": 30.96004867553711
+        },
+        {
+          "png_rel": "CHILOE/CHILOE_VIENTO_20260414_00Z.png",
+          "utc_time": "2026-04-14 00:00:00",
+          "local_time": "2026-04-13 21:00:00",
+          "dominant_dir": "N",
+          "max_kt": 40.04842758178711,
+          "p75_kt": 34.342899322509766
+        },
+        {
+          "png_rel": "CHILOE/CHILOE_VIENTO_20260414_03Z.png",
+          "utc_time": "2026-04-14 03:00:00",
+          "local_time": "2026-04-14 00:00:00",
+          "dominant_dir": "N",
+          "max_kt": 43.097469329833984,
+          "p75_kt": 36.40310287475586
+        },
+        {
+          "png_rel": "CHILOE/CHILOE_VIENTO_20260414_06Z.png",
+          "utc_time": "2026-04-14 06:00:00",
+          "local_time": "2026-04-14 03:00:00",
+          "dominant_dir": "NW",
+          "max_kt": 45.181888580322266,
+          "p75_kt": 28.760351181030273
+        },
+        {
+          "png_rel": "CHILOE/CHILOE_VIENTO_20260414_09Z.png",
+          "utc_time": "2026-04-14 09:00:00",
+          "local_time": "2026-04-14 06:00:00",
+          "dominant_dir": "W",
+          "max_kt": 32.81513977050781,
+          "p75_kt": 18.257633209228516
+        },
+        {
+          "png_rel": "CHILOE/CHILOE_VIENTO_20260414_12Z.png",
+          "utc_time": "2026-04-14 12:00:00",
+          "local_time": "2026-04-14 09:00:00",
+          "dominant_dir": "SW",
+          "max_kt": 27.18035316467285,
+          "p75_kt": 14.683396339416504
+        },
+        {
+          "png_rel": "CHILOE/CHILOE_VIENTO_20260414_15Z.png",
+          "utc_time": "2026-04-14 15:00:00",
+          "local_time": "2026-04-14 12:00:00",
+          "dominant_dir": "SW",
+          "max_kt": 19.882020950317383,
+          "p75_kt": 11.606630325317383
+        },
+        {
+          "png_rel": "CHILOE/CHILOE_VIENTO_20260414_18Z.png",
+          "utc_time": "2026-04-14 18:00:00",
+          "local_time": "2026-04-14 15:00:00",
+          "dominant_dir": "SW",
+          "max_kt": 14.529727935791016,
+          "p75_kt": 10.137110710144043
+        },
+        {
+          "png_rel": "CHILOE/CHILOE_VIENTO_20260414_21Z.png",
+          "utc_time": "2026-04-14 21:00:00",
+          "local_time": "2026-04-14 18:00:00",
+          "dominant_dir": "SW",
+          "max_kt": 11.751815795898438,
+          "p75_kt": 7.145602703094482
+        },
+        {
+          "png_rel": "CHILOE/CHILOE_VIENTO_20260415_00Z.png",
+          "utc_time": "2026-04-15 00:00:00",
+          "local_time": "2026-04-14 21:00:00",
+          "dominant_dir": "SE",
+          "max_kt": 10.011408805847168,
+          "p75_kt": 5.2648725509643555
+        },
+        {
+          "png_rel": "CHILOE/CHILOE_VIENTO_20260415_03Z.png",
+          "utc_time": "2026-04-15 03:00:00",
+          "local_time": "2026-04-15 00:00:00",
+          "dominant_dir": "NE",
+          "max_kt": 12.021135330200195,
+          "p75_kt": 7.512962818145752
+        },
+        {
+          "png_rel": "CHILOE/CHILOE_VIENTO_20260415_06Z.png",
+          "utc_time": "2026-04-15 06:00:00",
+          "local_time": "2026-04-15 03:00:00",
+          "dominant_dir": "NE",
+          "max_kt": 14.061066627502441,
+          "p75_kt": 8.008474349975586
+        },
+        {
+          "png_rel": "CHILOE/CHILOE_VIENTO_20260415_09Z.png",
+          "utc_time": "2026-04-15 09:00:00",
+          "local_time": "2026-04-15 06:00:00",
+          "dominant_dir": "NE",
+          "max_kt": 13.356017112731934,
+          "p75_kt": 6.544450759887695
+        },
+        {
+          "png_rel": "CHILOE/CHILOE_VIENTO_20260415_12Z.png",
+          "utc_time": "2026-04-15 12:00:00",
+          "local_time": "2026-04-15 09:00:00",
+          "dominant_dir": "E",
+          "max_kt": 13.313129425048828,
+          "p75_kt": 7.647130966186523
+        },
+        {
+          "png_rel": "CHILOE/CHILOE_VIENTO_20260415_15Z.png",
+          "utc_time": "2026-04-15 15:00:00",
+          "local_time": "2026-04-15 12:00:00",
+          "dominant_dir": "NE",
+          "max_kt": 15.002620697021484,
+          "p75_kt": 8.735702514648438
+        },
+        {
+          "png_rel": "CHILOE/CHILOE_VIENTO_20260415_18Z.png",
+          "utc_time": "2026-04-15 18:00:00",
+          "local_time": "2026-04-15 15:00:00",
+          "dominant_dir": "N",
+          "max_kt": 15.797463417053223,
+          "p75_kt": 8.652948379516602
+        },
+        {
+          "png_rel": "CHILOE/CHILOE_VIENTO_20260415_21Z.png",
+          "utc_time": "2026-04-15 21:00:00",
+          "local_time": "2026-04-15 18:00:00",
+          "dominant_dir": "N",
+          "max_kt": 16.541183471679688,
+          "p75_kt": 11.966975212097168
+        },
+        {
+          "png_rel": "CHILOE/CHILOE_VIENTO_20260416_00Z.png",
+          "utc_time": "2026-04-16 00:00:00",
+          "local_time": "2026-04-15 21:00:00",
+          "dominant_dir": "N",
+          "max_kt": 15.577775955200195,
+          "p75_kt": 11.658016204833984
+        },
+        {
+          "png_rel": "CHILOE/CHILOE_VIENTO_20260416_03Z.png",
+          "utc_time": "2026-04-16 03:00:00",
+          "local_time": "2026-04-16 00:00:00",
+          "dominant_dir": "N",
+          "max_kt": 20.060087203979492,
+          "p75_kt": 13.724076271057129
+        },
+        {
+          "png_rel": "CHILOE/CHILOE_VIENTO_20260416_06Z.png",
+          "utc_time": "2026-04-16 06:00:00",
+          "local_time": "2026-04-16 03:00:00",
+          "dominant_dir": "N",
+          "max_kt": 23.09819984436035,
+          "p75_kt": 16.520198822021484
+        },
+        {
+          "png_rel": "CHILOE/CHILOE_VIENTO_20260416_09Z.png",
+          "utc_time": "2026-04-16 09:00:00",
+          "local_time": "2026-04-16 06:00:00",
+          "dominant_dir": "N",
+          "max_kt": 24.5811710357666,
+          "p75_kt": 17.519222259521484
+        },
+        {
+          "png_rel": "CHILOE/CHILOE_VIENTO_20260416_12Z.png",
+          "utc_time": "2026-04-16 12:00:00",
+          "local_time": "2026-04-16 09:00:00",
+          "dominant_dir": "N",
+          "max_kt": 23.809755325317383,
+          "p75_kt": 19.57364273071289
+        },
+        {
+          "png_rel": "CHILOE/CHILOE_VIENTO_20260416_15Z.png",
+          "utc_time": "2026-04-16 15:00:00",
+          "local_time": "2026-04-16 12:00:00",
+          "dominant_dir": "N",
+          "max_kt": 25.193275451660156,
+          "p75_kt": 20.131454467773438
+        },
+        {
+          "png_rel": "CHILOE/CHILOE_VIENTO_20260416_18Z.png",
+          "utc_time": "2026-04-16 18:00:00",
+          "local_time": "2026-04-16 15:00:00",
+          "dominant_dir": "N",
+          "max_kt": 24.806791305541992,
+          "p75_kt": 21.701499938964844
+        },
+        {
+          "png_rel": "CHILOE/CHILOE_VIENTO_20260416_21Z.png",
+          "utc_time": "2026-04-16 21:00:00",
+          "local_time": "2026-04-16 18:00:00",
+          "dominant_dir": "N",
+          "max_kt": 27.750205993652344,
+          "p75_kt": 22.535213470458984
+        },
+        {
+          "png_rel": "CHILOE/CHILOE_VIENTO_20260417_00Z.png",
+          "utc_time": "2026-04-17 00:00:00",
+          "local_time": "2026-04-16 21:00:00",
+          "dominant_dir": "NW",
+          "max_kt": 28.49305534362793,
+          "p75_kt": 16.634450912475586
+        },
+        {
+          "png_rel": "CHILOE/CHILOE_VIENTO_20260417_03Z.png",
+          "utc_time": "2026-04-17 03:00:00",
+          "local_time": "2026-04-17 00:00:00",
+          "dominant_dir": "W",
+          "max_kt": 21.676504135131836,
+          "p75_kt": 15.13830280303955
+        },
+        {
+          "png_rel": "CHILOE/CHILOE_VIENTO_20260417_06Z.png",
+          "utc_time": "2026-04-17 06:00:00",
+          "local_time": "2026-04-17 03:00:00",
+          "dominant_dir": "W",
+          "max_kt": 18.500125885009766,
+          "p75_kt": 12.418805122375488
+        },
+        {
+          "png_rel": "CHILOE/CHILOE_VIENTO_20260417_09Z.png",
+          "utc_time": "2026-04-17 09:00:00",
+          "local_time": "2026-04-17 06:00:00",
+          "dominant_dir": "W",
+          "max_kt": 16.666645050048828,
+          "p75_kt": 8.969178199768066
+        },
+        {
+          "png_rel": "CHILOE/CHILOE_VIENTO_20260417_12Z.png",
+          "utc_time": "2026-04-17 12:00:00",
+          "local_time": "2026-04-17 09:00:00",
+          "dominant_dir": "W",
+          "max_kt": 11.316401481628418,
+          "p75_kt": 6.278067588806152
+        },
+        {
+          "png_rel": "CHILOE/CHILOE_VIENTO_20260417_15Z.png",
+          "utc_time": "2026-04-17 15:00:00",
+          "local_time": "2026-04-17 12:00:00",
+          "dominant_dir": "NW",
+          "max_kt": 10.370759963989258,
+          "p75_kt": 4.714452743530273
+        },
+        {
+          "png_rel": "CHILOE/CHILOE_VIENTO_20260417_18Z.png",
+          "utc_time": "2026-04-17 18:00:00",
+          "local_time": "2026-04-17 15:00:00",
+          "dominant_dir": "N",
+          "max_kt": 14.31934928894043,
+          "p75_kt": 7.602047443389893
+        },
+        {
+          "png_rel": "CHILOE/CHILOE_VIENTO_20260417_21Z.png",
+          "utc_time": "2026-04-17 21:00:00",
+          "local_time": "2026-04-17 18:00:00",
+          "dominant_dir": "N",
+          "max_kt": 15.913360595703125,
+          "p75_kt": 12.073284149169922
+        },
+        {
+          "png_rel": "CHILOE/CHILOE_VIENTO_20260418_00Z.png",
+          "utc_time": "2026-04-18 00:00:00",
+          "local_time": "2026-04-17 21:00:00",
+          "dominant_dir": "N",
+          "max_kt": 19.124086380004883,
+          "p75_kt": 15.106878280639648
+        },
+        {
+          "png_rel": "CHILOE/CHILOE_VIENTO_20260418_03Z.png",
+          "utc_time": "2026-04-18 03:00:00",
+          "local_time": "2026-04-18 00:00:00",
+          "dominant_dir": "N",
+          "max_kt": 21.40485382080078,
+          "p75_kt": 16.577272415161133
+        },
+        {
+          "png_rel": "CHILOE/CHILOE_VIENTO_20260418_06Z.png",
+          "utc_time": "2026-04-18 06:00:00",
+          "local_time": "2026-04-18 03:00:00",
+          "dominant_dir": "N",
+          "max_kt": 22.038265228271484,
+          "p75_kt": 17.97779655456543
+        },
+        {
+          "png_rel": "CHILOE/CHILOE_VIENTO_20260418_09Z.png",
+          "utc_time": "2026-04-18 09:00:00",
+          "local_time": "2026-04-18 06:00:00",
+          "dominant_dir": "N",
+          "max_kt": 26.152711868286133,
+          "p75_kt": 18.16553497314453
+        },
+        {
+          "png_rel": "CHILOE/CHILOE_VIENTO_20260418_12Z.png",
+          "utc_time": "2026-04-18 12:00:00",
+          "local_time": "2026-04-18 09:00:00",
+          "dominant_dir": "N",
+          "max_kt": 23.396589279174805,
+          "p75_kt": 15.368680000305176
+        },
+        {
+          "png_rel": "CHILOE/CHILOE_VIENTO_20260418_15Z.png",
+          "utc_time": "2026-04-18 15:00:00",
+          "local_time": "2026-04-18 12:00:00",
+          "dominant_dir": "N",
+          "max_kt": 27.155845642089844,
+          "p75_kt": 15.338089942932129
+        },
+        {
+          "png_rel": "CHILOE/CHILOE_VIENTO_20260418_18Z.png",
+          "utc_time": "2026-04-18 18:00:00",
+          "local_time": "2026-04-18 15:00:00",
+          "dominant_dir": "NE",
+          "max_kt": 30.29949188232422,
+          "p75_kt": 13.430087089538574
+        },
+        {
+          "png_rel": "CHILOE/CHILOE_VIENTO_20260418_21Z.png",
+          "utc_time": "2026-04-18 21:00:00",
+          "local_time": "2026-04-18 18:00:00",
+          "dominant_dir": "SE",
+          "max_kt": 30.910247802734375,
+          "p75_kt": 21.431982040405273
+        },
+        {
+          "png_rel": "CHILOE/CHILOE_VIENTO_20260419_00Z.png",
+          "utc_time": "2026-04-19 00:00:00",
+          "local_time": "2026-04-18 21:00:00",
+          "dominant_dir": "S",
+          "max_kt": 39.18321228027344,
+          "p75_kt": 29.81184959411621
+        },
+        {
+          "png_rel": "CHILOE/CHILOE_VIENTO_20260419_03Z.png",
+          "utc_time": "2026-04-19 03:00:00",
+          "local_time": "2026-04-19 00:00:00",
+          "dominant_dir": "SW",
+          "max_kt": 43.94486618041992,
+          "p75_kt": 29.21426010131836
+        },
+        {
+          "png_rel": "CHILOE/CHILOE_VIENTO_20260419_06Z.png",
+          "utc_time": "2026-04-19 06:00:00",
+          "local_time": "2026-04-19 03:00:00",
+          "dominant_dir": "SW",
+          "max_kt": 30.098432540893555,
+          "p75_kt": 25.938398361206055
+        },
+        {
+          "png_rel": "CHILOE/CHILOE_VIENTO_20260419_09Z.png",
+          "utc_time": "2026-04-19 09:00:00",
+          "local_time": "2026-04-19 06:00:00",
+          "dominant_dir": "SW",
+          "max_kt": 24.2614803314209,
+          "p75_kt": 17.883438110351562
+        },
+        {
+          "png_rel": "CHILOE/CHILOE_VIENTO_20260419_12Z.png",
+          "utc_time": "2026-04-19 12:00:00",
+          "local_time": "2026-04-19 09:00:00",
+          "dominant_dir": "SW",
+          "max_kt": 15.379307746887207,
+          "p75_kt": 12.095365524291992
+        },
+        {
+          "png_rel": "CHILOE/CHILOE_VIENTO_20260419_15Z.png",
+          "utc_time": "2026-04-19 15:00:00",
+          "local_time": "2026-04-19 12:00:00",
+          "dominant_dir": "SW",
+          "max_kt": 14.1956205368042,
+          "p75_kt": 8.24691390991211
+        },
+        {
+          "png_rel": "CHILOE/CHILOE_VIENTO_20260419_18Z.png",
+          "utc_time": "2026-04-19 18:00:00",
+          "local_time": "2026-04-19 15:00:00",
+          "dominant_dir": "W",
+          "max_kt": 10.98355770111084,
+          "p75_kt": 8.261232376098633
+        },
+        {
+          "png_rel": "CHILOE/CHILOE_VIENTO_20260419_21Z.png",
+          "utc_time": "2026-04-19 21:00:00",
+          "local_time": "2026-04-19 18:00:00",
+          "dominant_dir": "W",
+          "max_kt": 10.967002868652344,
+          "p75_kt": 7.156837463378906
+        },
+        {
+          "png_rel": "CHILOE/CHILOE_VIENTO_20260420_00Z.png",
+          "utc_time": "2026-04-20 00:00:00",
+          "local_time": "2026-04-19 21:00:00",
+          "dominant_dir": "SW",
+          "max_kt": 10.261744499206543,
+          "p75_kt": 5.781134128570557
+        },
+        {
+          "png_rel": "CHILOE/CHILOE_VIENTO_20260420_03Z.png",
+          "utc_time": "2026-04-20 03:00:00",
+          "local_time": "2026-04-20 00:00:00",
+          "dominant_dir": "SW",
+          "max_kt": 7.9699201583862305,
+          "p75_kt": 4.215617656707764
+        },
+        {
+          "png_rel": "CHILOE/CHILOE_VIENTO_20260420_06Z.png",
+          "utc_time": "2026-04-20 06:00:00",
+          "local_time": "2026-04-20 03:00:00",
+          "dominant_dir": "NE",
+          "max_kt": 9.12533950805664,
+          "p75_kt": 4.149979591369629
+        },
+        {
+          "png_rel": "CHILOE/CHILOE_VIENTO_20260420_09Z.png",
+          "utc_time": "2026-04-20 09:00:00",
+          "local_time": "2026-04-20 06:00:00",
+          "dominant_dir": "E",
+          "max_kt": 7.085840702056885,
+          "p75_kt": 4.252710342407227
+        },
+        {
+          "png_rel": "CHILOE/CHILOE_VIENTO_20260420_12Z.png",
+          "utc_time": "2026-04-20 12:00:00",
+          "local_time": "2026-04-20 09:00:00",
+          "dominant_dir": "E",
+          "max_kt": 8.704337120056152,
+          "p75_kt": 4.576995372772217
+        },
+        {
+          "png_rel": "CHILOE/CHILOE_VIENTO_20260420_15Z.png",
+          "utc_time": "2026-04-20 15:00:00",
+          "local_time": "2026-04-20 12:00:00",
+          "dominant_dir": "SE",
+          "max_kt": 9.703204154968262,
+          "p75_kt": 3.930178165435791
+        },
+        {
+          "png_rel": "CHILOE/CHILOE_VIENTO_20260420_18Z.png",
+          "utc_time": "2026-04-20 18:00:00",
+          "local_time": "2026-04-20 15:00:00",
+          "dominant_dir": "SW",
+          "max_kt": 14.285770416259766,
+          "p75_kt": 5.7592668533325195
+        },
+        {
+          "png_rel": "CHILOE/CHILOE_VIENTO_20260420_21Z.png",
+          "utc_time": "2026-04-20 21:00:00",
+          "local_time": "2026-04-20 18:00:00",
+          "dominant_dir": "SW",
+          "max_kt": 15.08956241607666,
+          "p75_kt": 6.823307037353516
+        },
+        {
+          "png_rel": "CHILOE/CHILOE_VIENTO_20260421_00Z.png",
+          "utc_time": "2026-04-21 00:00:00",
+          "local_time": "2026-04-20 21:00:00",
+          "dominant_dir": "S",
+          "max_kt": 14.71668815612793,
+          "p75_kt": 7.554734706878662
+        },
+        {
+          "png_rel": "CHILOE/CHILOE_VIENTO_20260421_03Z.png",
+          "utc_time": "2026-04-21 03:00:00",
+          "local_time": "2026-04-21 00:00:00",
+          "dominant_dir": "S",
+          "max_kt": 13.772109031677246,
+          "p75_kt": 7.128659248352051
+        },
+        {
+          "png_rel": "CHILOE/CHILOE_VIENTO_20260421_06Z.png",
+          "utc_time": "2026-04-21 06:00:00",
+          "local_time": "2026-04-21 03:00:00",
+          "dominant_dir": "S",
+          "max_kt": 14.048347473144531,
+          "p75_kt": 7.433234691619873
+        },
+        {
+          "png_rel": "CHILOE/CHILOE_VIENTO_20260421_09Z.png",
+          "utc_time": "2026-04-21 09:00:00",
+          "local_time": "2026-04-21 06:00:00",
+          "dominant_dir": "SW",
+          "max_kt": 14.539790153503418,
+          "p75_kt": 8.29966926574707
+        },
+        {
+          "png_rel": "CHILOE/CHILOE_VIENTO_20260421_12Z.png",
+          "utc_time": "2026-04-21 12:00:00",
+          "local_time": "2026-04-21 09:00:00",
+          "dominant_dir": "SW",
+          "max_kt": 12.833507537841797,
+          "p75_kt": 8.367730140686035
+        },
+        {
+          "png_rel": "CHILOE/CHILOE_VIENTO_20260421_15Z.png",
+          "utc_time": "2026-04-21 15:00:00",
+          "local_time": "2026-04-21 12:00:00",
+          "dominant_dir": "SW",
+          "max_kt": 14.08043384552002,
+          "p75_kt": 9.03520393371582
+        },
+        {
+          "png_rel": "CHILOE/CHILOE_VIENTO_20260421_18Z.png",
+          "utc_time": "2026-04-21 18:00:00",
+          "local_time": "2026-04-21 15:00:00",
+          "dominant_dir": "SW",
+          "max_kt": 17.20555305480957,
+          "p75_kt": 11.108463287353516
+        },
+        {
+          "png_rel": "CHILOE/CHILOE_VIENTO_20260421_21Z.png",
+          "utc_time": "2026-04-21 21:00:00",
+          "local_time": "2026-04-21 18:00:00",
+          "dominant_dir": "S",
+          "max_kt": 17.5572566986084,
+          "p75_kt": 10.26529312133789
+        },
+        {
+          "png_rel": "CHILOE/CHILOE_VIENTO_20260422_00Z.png",
+          "utc_time": "2026-04-22 00:00:00",
+          "local_time": "2026-04-21 21:00:00",
+          "dominant_dir": "S",
+          "max_kt": 17.980758666992188,
+          "p75_kt": 9.362883567810059
+        },
+        {
+          "png_rel": "CHILOE/CHILOE_VIENTO_20260422_03Z.png",
+          "utc_time": "2026-04-22 03:00:00",
+          "local_time": "2026-04-22 00:00:00",
+          "dominant_dir": "S",
+          "max_kt": 15.471380233764648,
+          "p75_kt": 7.507878303527832
+        },
+        {
+          "png_rel": "CHILOE/CHILOE_VIENTO_20260422_06Z.png",
+          "utc_time": "2026-04-22 06:00:00",
+          "local_time": "2026-04-22 03:00:00",
+          "dominant_dir": "SE",
+          "max_kt": 14.77171802520752,
+          "p75_kt": 7.222846984863281
+        }
+      ],
+      "daily": [
+        {
+          "day": "2026-04-12",
+          "dir_dom": "SW",
+          "max_kt": 17.4,
+          "p75_day": 15.2,
+          "gt25": [],
+          "windows_lt20": [
+            {
+              "inicio": "03:00",
+              "fin": "21:00",
+              "hours": 21,
+              "dir": "SW"
+            }
+          ]
+        },
+        {
+          "day": "2026-04-13",
+          "dir_dom": "N",
+          "max_kt": 40.0,
+          "p75_day": 34.3,
+          "gt25": [
+            {
+              "hora": "12:00",
+              "dir": "N",
+              "max_kt": 29.6
+            },
+            {
+              "hora": "15:00",
+              "dir": "N",
+              "max_kt": 35.0
+            },
+            {
+              "hora": "18:00",
+              "dir": "N",
+              "max_kt": 39.5
+            },
+            {
+              "hora": "21:00",
+              "dir": "N",
+              "max_kt": 40.0
+            }
+          ],
+          "windows_lt20": [
+            {
+              "inicio": "00:00",
+              "fin": "09:00",
+              "hours": 12,
+              "dir": "N"
+            }
+          ]
+        },
+        {
+          "day": "2026-04-14",
+          "dir_dom": "SW",
+          "max_kt": 45.2,
+          "p75_day": 36.4,
+          "gt25": [
+            {
+              "hora": "00:00",
+              "dir": "N",
+              "max_kt": 43.1
+            },
+            {
+              "hora": "03:00",
+              "dir": "NW",
+              "max_kt": 45.2
+            },
+            {
+              "hora": "06:00",
+              "dir": "W",
+              "max_kt": 32.8
+            },
+            {
+              "hora": "09:00",
+              "dir": "SW",
+              "max_kt": 27.2
+            }
+          ],
+          "windows_lt20": [
+            {
+              "inicio": "06:00",
+              "fin": "21:00",
+              "hours": 18,
+              "dir": "SW"
+            }
+          ]
+        },
+        {
+          "day": "2026-04-15",
+          "dir_dom": "NE",
+          "max_kt": 16.5,
+          "p75_day": 12.0,
+          "gt25": [],
+          "windows_lt20": [
+            {
+              "inicio": "00:00",
+              "fin": "21:00",
+              "hours": 24,
+              "dir": "NE"
+            }
+          ]
+        },
+        {
+          "day": "2026-04-16",
+          "dir_dom": "N",
+          "max_kt": 28.5,
+          "p75_day": 22.5,
+          "gt25": [
+            {
+              "hora": "12:00",
+              "dir": "N",
+              "max_kt": 25.2
+            },
+            {
+              "hora": "18:00",
+              "dir": "N",
+              "max_kt": 27.8
+            },
+            {
+              "hora": "21:00",
+              "dir": "NW",
+              "max_kt": 28.5
+            }
+          ],
+          "windows_lt20": [
+            {
+              "inicio": "00:00",
+              "fin": "09:00",
+              "hours": 12,
+              "dir": "N"
+            },
+            {
+              "inicio": "21:00",
+              "fin": "21:00",
+              "hours": 3,
+              "dir": "NW"
+            }
+          ]
+        },
+        {
+          "day": "2026-04-17",
+          "dir_dom": "W",
+          "max_kt": 21.7,
+          "p75_day": 15.1,
+          "gt25": [],
+          "windows_lt20": [
+            {
+              "inicio": "00:00",
+              "fin": "21:00",
+              "hours": 24,
+              "dir": "W"
+            }
+          ]
+        },
+        {
+          "day": "2026-04-18",
+          "dir_dom": "N",
+          "max_kt": 39.2,
+          "p75_day": 29.8,
+          "gt25": [
+            {
+              "hora": "06:00",
+              "dir": "N",
+              "max_kt": 26.2
+            },
+            {
+              "hora": "12:00",
+              "dir": "N",
+              "max_kt": 27.2
+            },
+            {
+              "hora": "15:00",
+              "dir": "NE",
+              "max_kt": 30.3
+            },
+            {
+              "hora": "18:00",
+              "dir": "SE",
+              "max_kt": 30.9
+            },
+            {
+              "hora": "21:00",
+              "dir": "S",
+              "max_kt": 39.2
+            }
+          ],
+          "windows_lt20": [
+            {
+              "inicio": "00:00",
+              "fin": "15:00",
+              "hours": 18,
+              "dir": "N"
+            }
+          ]
+        },
+        {
+          "day": "2026-04-19",
+          "dir_dom": "SW",
+          "max_kt": 43.9,
+          "p75_day": 29.2,
+          "gt25": [
+            {
+              "hora": "00:00",
+              "dir": "SW",
+              "max_kt": 43.9
+            },
+            {
+              "hora": "03:00",
+              "dir": "SW",
+              "max_kt": 30.1
+            }
+          ],
+          "windows_lt20": [
+            {
+              "inicio": "06:00",
+              "fin": "21:00",
+              "hours": 18,
+              "dir": "SW"
+            }
+          ]
+        },
+        {
+          "day": "2026-04-20",
+          "dir_dom": "SW",
+          "max_kt": 15.1,
+          "p75_day": 7.6,
+          "gt25": [],
+          "windows_lt20": [
+            {
+              "inicio": "00:00",
+              "fin": "21:00",
+              "hours": 24,
+              "dir": "SW"
+            }
+          ]
+        },
+        {
+          "day": "2026-04-21",
+          "dir_dom": "S",
+          "max_kt": 18.0,
+          "p75_day": 11.1,
+          "gt25": [],
+          "windows_lt20": [
+            {
+              "inicio": "00:00",
+              "fin": "21:00",
+              "hours": 24,
+              "dir": "S"
+            }
+          ]
+        },
+        {
+          "day": "2026-04-22",
+          "dir_dom": "S",
+          "max_kt": 15.5,
+          "p75_day": 7.5,
+          "gt25": [],
+          "windows_lt20": [
+            {
+              "inicio": "00:00",
+              "fin": "03:00",
+              "hours": 6,
+              "dir": "S"
+            }
+          ]
+        }
+      ]
+    },
+    "CHACAO_PENAS": {
+      "title": "MAPA VIENTO 10 MTS — Canal Chacao a Golfo de Penas",
+      "frames": [
+        {
+          "png_rel": "CHACAO_PENAS/CHACAO-PENAS_20260412_03L.png",
+          "utc_time": "2026-04-12 06:00:00",
+          "local_time": "2026-04-12 03:00:00",
+          "dominant_dir": "W",
+          "max_kt": 21.960277557373047,
+          "p75_kt": 16.61092758178711
+        },
+        {
+          "png_rel": "CHACAO_PENAS/CHACAO-PENAS_20260412_06L.png",
+          "utc_time": "2026-04-12 09:00:00",
+          "local_time": "2026-04-12 06:00:00",
+          "dominant_dir": "W",
+          "max_kt": 24.917377471923828,
+          "p75_kt": 12.48209285736084
+        },
+        {
+          "png_rel": "CHACAO_PENAS/CHACAO-PENAS_20260412_09L.png",
+          "utc_time": "2026-04-12 12:00:00",
+          "local_time": "2026-04-12 09:00:00",
+          "dominant_dir": "NW",
+          "max_kt": 30.140010833740234,
+          "p75_kt": 12.681032180786133
+        },
+        {
+          "png_rel": "CHACAO_PENAS/CHACAO-PENAS_20260412_12L.png",
+          "utc_time": "2026-04-12 15:00:00",
+          "local_time": "2026-04-12 12:00:00",
+          "dominant_dir": "NW",
+          "max_kt": 31.456085205078125,
+          "p75_kt": 14.4599027633667
+        },
+        {
+          "png_rel": "CHACAO_PENAS/CHACAO-PENAS_20260412_15L.png",
+          "utc_time": "2026-04-12 18:00:00",
+          "local_time": "2026-04-12 15:00:00",
+          "dominant_dir": "NW",
+          "max_kt": 31.092966079711914,
+          "p75_kt": 16.760581970214844
+        },
+        {
+          "png_rel": "CHACAO_PENAS/CHACAO-PENAS_20260412_18L.png",
+          "utc_time": "2026-04-12 21:00:00",
+          "local_time": "2026-04-12 18:00:00",
+          "dominant_dir": "NW",
+          "max_kt": 32.5004768371582,
+          "p75_kt": 18.03986930847168
+        },
+        {
+          "png_rel": "CHACAO_PENAS/CHACAO-PENAS_20260412_21L.png",
+          "utc_time": "2026-04-13 00:00:00",
+          "local_time": "2026-04-12 21:00:00",
+          "dominant_dir": "NW",
+          "max_kt": 35.71046447753906,
+          "p75_kt": 18.52705955505371
+        },
+        {
+          "png_rel": "CHACAO_PENAS/CHACAO-PENAS_20260413_00L.png",
+          "utc_time": "2026-04-13 03:00:00",
+          "local_time": "2026-04-13 00:00:00",
+          "dominant_dir": "N",
+          "max_kt": 37.2295036315918,
+          "p75_kt": 20.598112106323242
+        },
+        {
+          "png_rel": "CHACAO_PENAS/CHACAO-PENAS_20260413_03L.png",
+          "utc_time": "2026-04-13 06:00:00",
+          "local_time": "2026-04-13 03:00:00",
+          "dominant_dir": "N",
+          "max_kt": 37.652557373046875,
+          "p75_kt": 22.731937408447266
+        },
+        {
+          "png_rel": "CHACAO_PENAS/CHACAO-PENAS_20260413_06L.png",
+          "utc_time": "2026-04-13 09:00:00",
+          "local_time": "2026-04-13 06:00:00",
+          "dominant_dir": "N",
+          "max_kt": 36.84190368652344,
+          "p75_kt": 24.24167823791504
+        },
+        {
+          "png_rel": "CHACAO_PENAS/CHACAO-PENAS_20260413_09L.png",
+          "utc_time": "2026-04-13 12:00:00",
+          "local_time": "2026-04-13 09:00:00",
+          "dominant_dir": "N",
+          "max_kt": 36.37381362915039,
+          "p75_kt": 26.4005184173584
+        },
+        {
+          "png_rel": "CHACAO_PENAS/CHACAO-PENAS_20260413_12L.png",
+          "utc_time": "2026-04-13 15:00:00",
+          "local_time": "2026-04-13 12:00:00",
+          "dominant_dir": "N",
+          "max_kt": 36.62175369262695,
+          "p75_kt": 30.907596588134766
+        },
+        {
+          "png_rel": "CHACAO_PENAS/CHACAO-PENAS_20260413_15L.png",
+          "utc_time": "2026-04-13 18:00:00",
+          "local_time": "2026-04-13 15:00:00",
+          "dominant_dir": "N",
+          "max_kt": 45.13862991333008,
+          "p75_kt": 35.66697692871094
+        },
+        {
+          "png_rel": "CHACAO_PENAS/CHACAO-PENAS_20260413_18L.png",
+          "utc_time": "2026-04-13 21:00:00",
+          "local_time": "2026-04-13 18:00:00",
+          "dominant_dir": "N",
+          "max_kt": 51.93109893798828,
+          "p75_kt": 39.27045440673828
+        },
+        {
+          "png_rel": "CHACAO_PENAS/CHACAO-PENAS_20260413_21L.png",
+          "utc_time": "2026-04-14 00:00:00",
+          "local_time": "2026-04-13 21:00:00",
+          "dominant_dir": "N",
+          "max_kt": 44.434364318847656,
+          "p75_kt": 34.03375244140625
+        },
+        {
+          "png_rel": "CHACAO_PENAS/CHACAO-PENAS_20260414_00L.png",
+          "utc_time": "2026-04-14 03:00:00",
+          "local_time": "2026-04-14 00:00:00",
+          "dominant_dir": "NW",
+          "max_kt": 43.097469329833984,
+          "p75_kt": 26.268821716308594
+        },
+        {
+          "png_rel": "CHACAO_PENAS/CHACAO-PENAS_20260414_03L.png",
+          "utc_time": "2026-04-14 06:00:00",
+          "local_time": "2026-04-14 03:00:00",
+          "dominant_dir": "W",
+          "max_kt": 45.181888580322266,
+          "p75_kt": 20.68805694580078
+        },
+        {
+          "png_rel": "CHACAO_PENAS/CHACAO-PENAS_20260414_06L.png",
+          "utc_time": "2026-04-14 09:00:00",
+          "local_time": "2026-04-14 06:00:00",
+          "dominant_dir": "SW",
+          "max_kt": 32.81513977050781,
+          "p75_kt": 17.550172805786133
+        },
+        {
+          "png_rel": "CHACAO_PENAS/CHACAO-PENAS_20260414_09L.png",
+          "utc_time": "2026-04-14 12:00:00",
+          "local_time": "2026-04-14 09:00:00",
+          "dominant_dir": "W",
+          "max_kt": 27.18035316467285,
+          "p75_kt": 14.74917984008789
+        },
+        {
+          "png_rel": "CHACAO_PENAS/CHACAO-PENAS_20260414_12L.png",
+          "utc_time": "2026-04-14 15:00:00",
+          "local_time": "2026-04-14 12:00:00",
+          "dominant_dir": "W",
+          "max_kt": 24.885236740112305,
+          "p75_kt": 12.707635879516602
+        },
+        {
+          "png_rel": "CHACAO_PENAS/CHACAO-PENAS_20260414_15L.png",
+          "utc_time": "2026-04-14 18:00:00",
+          "local_time": "2026-04-14 15:00:00",
+          "dominant_dir": "W",
+          "max_kt": 28.71333122253418,
+          "p75_kt": 13.63817024230957
+        },
+        {
+          "png_rel": "CHACAO_PENAS/CHACAO-PENAS_20260414_18L.png",
+          "utc_time": "2026-04-14 21:00:00",
+          "local_time": "2026-04-14 18:00:00",
+          "dominant_dir": "NW",
+          "max_kt": 28.67291259765625,
+          "p75_kt": 12.503942489624023
+        },
+        {
+          "png_rel": "CHACAO_PENAS/CHACAO-PENAS_20260414_21L.png",
+          "utc_time": "2026-04-15 00:00:00",
+          "local_time": "2026-04-14 21:00:00",
+          "dominant_dir": "NW",
+          "max_kt": 28.17615509033203,
+          "p75_kt": 12.140931129455566
+        },
+        {
+          "png_rel": "CHACAO_PENAS/CHACAO-PENAS_20260415_00L.png",
+          "utc_time": "2026-04-15 03:00:00",
+          "local_time": "2026-04-15 00:00:00",
+          "dominant_dir": "N",
+          "max_kt": 30.250308990478516,
+          "p75_kt": 13.788552284240723
+        },
+        {
+          "png_rel": "CHACAO_PENAS/CHACAO-PENAS_20260415_03L.png",
+          "utc_time": "2026-04-15 06:00:00",
+          "local_time": "2026-04-15 03:00:00",
+          "dominant_dir": "N",
+          "max_kt": 31.407894134521484,
+          "p75_kt": 15.575967788696289
+        },
+        {
+          "png_rel": "CHACAO_PENAS/CHACAO-PENAS_20260415_06L.png",
+          "utc_time": "2026-04-15 09:00:00",
+          "local_time": "2026-04-15 06:00:00",
+          "dominant_dir": "N",
+          "max_kt": 31.980878829956055,
+          "p75_kt": 15.790228843688965
+        },
+        {
+          "png_rel": "CHACAO_PENAS/CHACAO-PENAS_20260415_09L.png",
+          "utc_time": "2026-04-15 12:00:00",
+          "local_time": "2026-04-15 09:00:00",
+          "dominant_dir": "N",
+          "max_kt": 33.743324279785156,
+          "p75_kt": 16.64595603942871
+        },
+        {
+          "png_rel": "CHACAO_PENAS/CHACAO-PENAS_20260415_12L.png",
+          "utc_time": "2026-04-15 15:00:00",
+          "local_time": "2026-04-15 12:00:00",
+          "dominant_dir": "N",
+          "max_kt": 33.674068450927734,
+          "p75_kt": 16.979291915893555
+        },
+        {
+          "png_rel": "CHACAO_PENAS/CHACAO-PENAS_20260415_15L.png",
+          "utc_time": "2026-04-15 18:00:00",
+          "local_time": "2026-04-15 15:00:00",
+          "dominant_dir": "N",
+          "max_kt": 35.13405227661133,
+          "p75_kt": 17.74289321899414
+        },
+        {
+          "png_rel": "CHACAO_PENAS/CHACAO-PENAS_20260415_18L.png",
+          "utc_time": "2026-04-15 21:00:00",
+          "local_time": "2026-04-15 18:00:00",
+          "dominant_dir": "N",
+          "max_kt": 35.325992584228516,
+          "p75_kt": 17.829830169677734
+        },
+        {
+          "png_rel": "CHACAO_PENAS/CHACAO-PENAS_20260415_21L.png",
+          "utc_time": "2026-04-16 00:00:00",
+          "local_time": "2026-04-15 21:00:00",
+          "dominant_dir": "N",
+          "max_kt": 35.93560028076172,
+          "p75_kt": 18.069786071777344
+        },
+        {
+          "png_rel": "CHACAO_PENAS/CHACAO-PENAS_20260416_00L.png",
+          "utc_time": "2026-04-16 03:00:00",
+          "local_time": "2026-04-16 00:00:00",
+          "dominant_dir": "N",
+          "max_kt": 37.67519760131836,
+          "p75_kt": 21.832189559936523
+        },
+        {
+          "png_rel": "CHACAO_PENAS/CHACAO-PENAS_20260416_03L.png",
+          "utc_time": "2026-04-16 06:00:00",
+          "local_time": "2026-04-16 03:00:00",
+          "dominant_dir": "N",
+          "max_kt": 38.014381408691406,
+          "p75_kt": 23.78077507019043
+        },
+        {
+          "png_rel": "CHACAO_PENAS/CHACAO-PENAS_20260416_06L.png",
+          "utc_time": "2026-04-16 09:00:00",
+          "local_time": "2026-04-16 06:00:00",
+          "dominant_dir": "N",
+          "max_kt": 39.1308479309082,
+          "p75_kt": 24.17646598815918
+        },
+        {
+          "png_rel": "CHACAO_PENAS/CHACAO-PENAS_20260416_09L.png",
+          "utc_time": "2026-04-16 12:00:00",
+          "local_time": "2026-04-16 09:00:00",
+          "dominant_dir": "N",
+          "max_kt": 38.353031158447266,
+          "p75_kt": 22.631723403930664
+        },
+        {
+          "png_rel": "CHACAO_PENAS/CHACAO-PENAS_20260416_12L.png",
+          "utc_time": "2026-04-16 15:00:00",
+          "local_time": "2026-04-16 12:00:00",
+          "dominant_dir": "N",
+          "max_kt": 32.45030975341797,
+          "p75_kt": 21.410789489746094
+        },
+        {
+          "png_rel": "CHACAO_PENAS/CHACAO-PENAS_20260416_15L.png",
+          "utc_time": "2026-04-16 18:00:00",
+          "local_time": "2026-04-16 15:00:00",
+          "dominant_dir": "N",
+          "max_kt": 30.77924346923828,
+          "p75_kt": 21.446380615234375
+        },
+        {
+          "png_rel": "CHACAO_PENAS/CHACAO-PENAS_20260416_18L.png",
+          "utc_time": "2026-04-16 21:00:00",
+          "local_time": "2026-04-16 18:00:00",
+          "dominant_dir": "NW",
+          "max_kt": 29.213850021362305,
+          "p75_kt": 17.037511825561523
+        },
+        {
+          "png_rel": "CHACAO_PENAS/CHACAO-PENAS_20260416_21L.png",
+          "utc_time": "2026-04-17 00:00:00",
+          "local_time": "2026-04-16 21:00:00",
+          "dominant_dir": "NW",
+          "max_kt": 28.49305534362793,
+          "p75_kt": 18.115333557128906
+        },
+        {
+          "png_rel": "CHACAO_PENAS/CHACAO-PENAS_20260417_00L.png",
+          "utc_time": "2026-04-17 03:00:00",
+          "local_time": "2026-04-17 00:00:00",
+          "dominant_dir": "NW",
+          "max_kt": 30.75161361694336,
+          "p75_kt": 17.837146759033203
+        },
+        {
+          "png_rel": "CHACAO_PENAS/CHACAO-PENAS_20260417_03L.png",
+          "utc_time": "2026-04-17 06:00:00",
+          "local_time": "2026-04-17 03:00:00",
+          "dominant_dir": "W",
+          "max_kt": 33.000244140625,
+          "p75_kt": 18.947553634643555
+        },
+        {
+          "png_rel": "CHACAO_PENAS/CHACAO-PENAS_20260417_06L.png",
+          "utc_time": "2026-04-17 09:00:00",
+          "local_time": "2026-04-17 06:00:00",
+          "dominant_dir": "W",
+          "max_kt": 29.165979385375977,
+          "p75_kt": 13.917601585388184
+        },
+        {
+          "png_rel": "CHACAO_PENAS/CHACAO-PENAS_20260417_09L.png",
+          "utc_time": "2026-04-17 12:00:00",
+          "local_time": "2026-04-17 09:00:00",
+          "dominant_dir": "NW",
+          "max_kt": 22.851566314697266,
+          "p75_kt": 9.821483612060547
+        },
+        {
+          "png_rel": "CHACAO_PENAS/CHACAO-PENAS_20260417_12L.png",
+          "utc_time": "2026-04-17 15:00:00",
+          "local_time": "2026-04-17 12:00:00",
+          "dominant_dir": "NW",
+          "max_kt": 20.28099822998047,
+          "p75_kt": 10.55042552947998
+        },
+        {
+          "png_rel": "CHACAO_PENAS/CHACAO-PENAS_20260417_15L.png",
+          "utc_time": "2026-04-17 18:00:00",
+          "local_time": "2026-04-17 15:00:00",
+          "dominant_dir": "NW",
+          "max_kt": 22.548683166503906,
+          "p75_kt": 13.113350868225098
+        },
+        {
+          "png_rel": "CHACAO_PENAS/CHACAO-PENAS_20260417_18L.png",
+          "utc_time": "2026-04-17 21:00:00",
+          "local_time": "2026-04-17 18:00:00",
+          "dominant_dir": "N",
+          "max_kt": 19.56885528564453,
+          "p75_kt": 13.81805419921875
+        },
+        {
+          "png_rel": "CHACAO_PENAS/CHACAO-PENAS_20260417_21L.png",
+          "utc_time": "2026-04-18 00:00:00",
+          "local_time": "2026-04-17 21:00:00",
+          "dominant_dir": "N",
+          "max_kt": 20.603744506835938,
+          "p75_kt": 13.89905071258545
+        },
+        {
+          "png_rel": "CHACAO_PENAS/CHACAO-PENAS_20260418_00L.png",
+          "utc_time": "2026-04-18 03:00:00",
+          "local_time": "2026-04-18 00:00:00",
+          "dominant_dir": "N",
+          "max_kt": 23.57183265686035,
+          "p75_kt": 13.23389720916748
+        },
+        {
+          "png_rel": "CHACAO_PENAS/CHACAO-PENAS_20260418_03L.png",
+          "utc_time": "2026-04-18 06:00:00",
+          "local_time": "2026-04-18 03:00:00",
+          "dominant_dir": "N",
+          "max_kt": 25.84115219116211,
+          "p75_kt": 13.038805961608887
+        },
+        {
+          "png_rel": "CHACAO_PENAS/CHACAO-PENAS_20260418_06L.png",
+          "utc_time": "2026-04-18 09:00:00",
+          "local_time": "2026-04-18 06:00:00",
+          "dominant_dir": "N",
+          "max_kt": 26.152711868286133,
+          "p75_kt": 12.283672332763672
+        },
+        {
+          "png_rel": "CHACAO_PENAS/CHACAO-PENAS_20260418_09L.png",
+          "utc_time": "2026-04-18 12:00:00",
+          "local_time": "2026-04-18 09:00:00",
+          "dominant_dir": "NE",
+          "max_kt": 23.396589279174805,
+          "p75_kt": 11.841850280761719
+        },
+        {
+          "png_rel": "CHACAO_PENAS/CHACAO-PENAS_20260418_12L.png",
+          "utc_time": "2026-04-18 15:00:00",
+          "local_time": "2026-04-18 12:00:00",
+          "dominant_dir": "E",
+          "max_kt": 27.155845642089844,
+          "p75_kt": 13.368829727172852
+        },
+        {
+          "png_rel": "CHACAO_PENAS/CHACAO-PENAS_20260418_15L.png",
+          "utc_time": "2026-04-18 18:00:00",
+          "local_time": "2026-04-18 15:00:00",
+          "dominant_dir": "S",
+          "max_kt": 30.29949188232422,
+          "p75_kt": 16.062705993652344
+        },
+        {
+          "png_rel": "CHACAO_PENAS/CHACAO-PENAS_20260418_18L.png",
+          "utc_time": "2026-04-18 21:00:00",
+          "local_time": "2026-04-18 18:00:00",
+          "dominant_dir": "S",
+          "max_kt": 35.406761169433594,
+          "p75_kt": 23.823780059814453
+        },
+        {
+          "png_rel": "CHACAO_PENAS/CHACAO-PENAS_20260418_21L.png",
+          "utc_time": "2026-04-19 00:00:00",
+          "local_time": "2026-04-18 21:00:00",
+          "dominant_dir": "S",
+          "max_kt": 39.18321228027344,
+          "p75_kt": 26.812532424926758
+        },
+        {
+          "png_rel": "CHACAO_PENAS/CHACAO-PENAS_20260419_00L.png",
+          "utc_time": "2026-04-19 03:00:00",
+          "local_time": "2026-04-19 00:00:00",
+          "dominant_dir": "SW",
+          "max_kt": 43.94486618041992,
+          "p75_kt": 26.90935516357422
+        },
+        {
+          "png_rel": "CHACAO_PENAS/CHACAO-PENAS_20260419_03L.png",
+          "utc_time": "2026-04-19 06:00:00",
+          "local_time": "2026-04-19 03:00:00",
+          "dominant_dir": "SW",
+          "max_kt": 30.098432540893555,
+          "p75_kt": 22.24371337890625
+        },
+        {
+          "png_rel": "CHACAO_PENAS/CHACAO-PENAS_20260419_06L.png",
+          "utc_time": "2026-04-19 09:00:00",
+          "local_time": "2026-04-19 06:00:00",
+          "dominant_dir": "SW",
+          "max_kt": 24.2614803314209,
+          "p75_kt": 17.762351989746094
+        },
+        {
+          "png_rel": "CHACAO_PENAS/CHACAO-PENAS_20260419_09L.png",
+          "utc_time": "2026-04-19 12:00:00",
+          "local_time": "2026-04-19 09:00:00",
+          "dominant_dir": "SW",
+          "max_kt": 16.574827194213867,
+          "p75_kt": 12.942693710327148
+        },
+        {
+          "png_rel": "CHACAO_PENAS/CHACAO-PENAS_20260419_12L.png",
+          "utc_time": "2026-04-19 15:00:00",
+          "local_time": "2026-04-19 12:00:00",
+          "dominant_dir": "W",
+          "max_kt": 14.1956205368042,
+          "p75_kt": 9.096894264221191
+        },
+        {
+          "png_rel": "CHACAO_PENAS/CHACAO-PENAS_20260419_15L.png",
+          "utc_time": "2026-04-19 18:00:00",
+          "local_time": "2026-04-19 15:00:00",
+          "dominant_dir": "W",
+          "max_kt": 13.036754608154297,
+          "p75_kt": 8.501958847045898
+        },
+        {
+          "png_rel": "CHACAO_PENAS/CHACAO-PENAS_20260419_18L.png",
+          "utc_time": "2026-04-19 21:00:00",
+          "local_time": "2026-04-19 18:00:00",
+          "dominant_dir": "W",
+          "max_kt": 16.387245178222656,
+          "p75_kt": 7.901693820953369
+        },
+        {
+          "png_rel": "CHACAO_PENAS/CHACAO-PENAS_20260419_21L.png",
+          "utc_time": "2026-04-20 00:00:00",
+          "local_time": "2026-04-19 21:00:00",
+          "dominant_dir": "W",
+          "max_kt": 17.25334930419922,
+          "p75_kt": 6.703344345092773
+        },
+        {
+          "png_rel": "CHACAO_PENAS/CHACAO-PENAS_20260420_00L.png",
+          "utc_time": "2026-04-20 03:00:00",
+          "local_time": "2026-04-20 00:00:00",
+          "dominant_dir": "NW",
+          "max_kt": 17.301063537597656,
+          "p75_kt": 6.084423065185547
+        },
+        {
+          "png_rel": "CHACAO_PENAS/CHACAO-PENAS_20260420_03L.png",
+          "utc_time": "2026-04-20 06:00:00",
+          "local_time": "2026-04-20 03:00:00",
+          "dominant_dir": "NW",
+          "max_kt": 20.35991096496582,
+          "p75_kt": 6.776759624481201
+        },
+        {
+          "png_rel": "CHACAO_PENAS/CHACAO-PENAS_20260420_06L.png",
+          "utc_time": "2026-04-20 09:00:00",
+          "local_time": "2026-04-20 06:00:00",
+          "dominant_dir": "NW",
+          "max_kt": 21.80301856994629,
+          "p75_kt": 7.191883087158203
+        },
+        {
+          "png_rel": "CHACAO_PENAS/CHACAO-PENAS_20260420_09L.png",
+          "utc_time": "2026-04-20 12:00:00",
+          "local_time": "2026-04-20 09:00:00",
+          "dominant_dir": "N",
+          "max_kt": 22.949142456054688,
+          "p75_kt": 7.372454643249512
+        },
+        {
+          "png_rel": "CHACAO_PENAS/CHACAO-PENAS_20260420_12L.png",
+          "utc_time": "2026-04-20 15:00:00",
+          "local_time": "2026-04-20 12:00:00",
+          "dominant_dir": "NW",
+          "max_kt": 18.701139450073242,
+          "p75_kt": 7.443942070007324
+        },
+        {
+          "png_rel": "CHACAO_PENAS/CHACAO-PENAS_20260420_15L.png",
+          "utc_time": "2026-04-20 18:00:00",
+          "local_time": "2026-04-20 15:00:00",
+          "dominant_dir": "NW",
+          "max_kt": 16.938364028930664,
+          "p75_kt": 7.985800266265869
+        },
+        {
+          "png_rel": "CHACAO_PENAS/CHACAO-PENAS_20260420_18L.png",
+          "utc_time": "2026-04-20 21:00:00",
+          "local_time": "2026-04-20 18:00:00",
+          "dominant_dir": "W",
+          "max_kt": 17.499971389770508,
+          "p75_kt": 8.480036735534668
+        },
+        {
+          "png_rel": "CHACAO_PENAS/CHACAO-PENAS_20260420_21L.png",
+          "utc_time": "2026-04-21 00:00:00",
+          "local_time": "2026-04-20 21:00:00",
+          "dominant_dir": "W",
+          "max_kt": 16.17554473876953,
+          "p75_kt": 8.37484073638916
+        },
+        {
+          "png_rel": "CHACAO_PENAS/CHACAO-PENAS_20260421_00L.png",
+          "utc_time": "2026-04-21 03:00:00",
+          "local_time": "2026-04-21 00:00:00",
+          "dominant_dir": "W",
+          "max_kt": 16.35750961303711,
+          "p75_kt": 8.593748092651367
+        },
+        {
+          "png_rel": "CHACAO_PENAS/CHACAO-PENAS_20260421_03L.png",
+          "utc_time": "2026-04-21 06:00:00",
+          "local_time": "2026-04-21 03:00:00",
+          "dominant_dir": "W",
+          "max_kt": 16.5058536529541,
+          "p75_kt": 9.111164093017578
+        },
+        {
+          "png_rel": "CHACAO_PENAS/CHACAO-PENAS_20260421_06L.png",
+          "utc_time": "2026-04-21 09:00:00",
+          "local_time": "2026-04-21 06:00:00",
+          "dominant_dir": "W",
+          "max_kt": 17.22592544555664,
+          "p75_kt": 9.521868705749512
+        },
+        {
+          "png_rel": "CHACAO_PENAS/CHACAO-PENAS_20260421_09L.png",
+          "utc_time": "2026-04-21 12:00:00",
+          "local_time": "2026-04-21 09:00:00",
+          "dominant_dir": "W",
+          "max_kt": 18.079753875732422,
+          "p75_kt": 10.451455116271973
+        },
+        {
+          "png_rel": "CHACAO_PENAS/CHACAO-PENAS_20260421_12L.png",
+          "utc_time": "2026-04-21 15:00:00",
+          "local_time": "2026-04-21 12:00:00",
+          "dominant_dir": "W",
+          "max_kt": 18.32419776916504,
+          "p75_kt": 10.86230182647705
+        },
+        {
+          "png_rel": "CHACAO_PENAS/CHACAO-PENAS_20260421_15L.png",
+          "utc_time": "2026-04-21 18:00:00",
+          "local_time": "2026-04-21 15:00:00",
+          "dominant_dir": "W",
+          "max_kt": 17.518306732177734,
+          "p75_kt": 10.870325088500977
+        },
+        {
+          "png_rel": "CHACAO_PENAS/CHACAO-PENAS_20260421_18L.png",
+          "utc_time": "2026-04-21 21:00:00",
+          "local_time": "2026-04-21 18:00:00",
+          "dominant_dir": "SW",
+          "max_kt": 17.5572566986084,
+          "p75_kt": 9.315166473388672
+        },
+        {
+          "png_rel": "CHACAO_PENAS/CHACAO-PENAS_20260421_21L.png",
+          "utc_time": "2026-04-22 00:00:00",
+          "local_time": "2026-04-21 21:00:00",
+          "dominant_dir": "S",
+          "max_kt": 17.980758666992188,
+          "p75_kt": 8.378520965576172
+        },
+        {
+          "png_rel": "CHACAO_PENAS/CHACAO-PENAS_20260422_00L.png",
+          "utc_time": "2026-04-22 03:00:00",
+          "local_time": "2026-04-22 00:00:00",
+          "dominant_dir": "NE",
+          "max_kt": 17.807252883911133,
+          "p75_kt": 8.01346492767334
+        },
+        {
+          "png_rel": "CHACAO_PENAS/CHACAO-PENAS_20260422_03L.png",
+          "utc_time": "2026-04-22 06:00:00",
+          "local_time": "2026-04-22 03:00:00",
+          "dominant_dir": "NE",
+          "max_kt": 18.306564331054688,
+          "p75_kt": 7.852190971374512
+        }
+      ],
+      "daily": [
+        {
+          "day": "2026-04-12",
+          "dir_dom": "NW",
+          "max_kt": 35.7,
+          "p75_day": 18.5,
+          "gt25": [
+            {
+              "hora": "09:00",
+              "dir": "NW",
+              "max_kt": 30.1
+            },
+            {
+              "hora": "12:00",
+              "dir": "NW",
+              "max_kt": 31.5
+            },
+            {
+              "hora": "15:00",
+              "dir": "NW",
+              "max_kt": 31.1
+            },
+            {
+              "hora": "18:00",
+              "dir": "NW",
+              "max_kt": 32.5
+            },
+            {
+              "hora": "21:00",
+              "dir": "NW",
+              "max_kt": 35.7
+            }
+          ],
+          "windows_lt20": [
+            {
+              "inicio": "03:00",
+              "fin": "21:00",
+              "hours": 21,
+              "dir": "NW"
+            }
+          ]
+        },
+        {
+          "day": "2026-04-13",
+          "dir_dom": "N",
+          "max_kt": 51.9,
+          "p75_day": 39.3,
+          "gt25": [
+            {
+              "hora": "00:00",
+              "dir": "N",
+              "max_kt": 37.2
+            },
+            {
+              "hora": "03:00",
+              "dir": "N",
+              "max_kt": 37.7
+            },
+            {
+              "hora": "06:00",
+              "dir": "N",
+              "max_kt": 36.8
+            },
+            {
+              "hora": "09:00",
+              "dir": "N",
+              "max_kt": 36.4
+            },
+            {
+              "hora": "12:00",
+              "dir": "N",
+              "max_kt": 36.6
+            },
+            {
+              "hora": "15:00",
+              "dir": "N",
+              "max_kt": 45.1
+            },
+            {
+              "hora": "18:00",
+              "dir": "N",
+              "max_kt": 51.9
+            },
+            {
+              "hora": "21:00",
+              "dir": "N",
+              "max_kt": 44.4
+            }
+          ],
+          "windows_lt20": []
+        },
+        {
+          "day": "2026-04-14",
+          "dir_dom": "W",
+          "max_kt": 45.2,
+          "p75_day": 26.3,
+          "gt25": [
+            {
+              "hora": "00:00",
+              "dir": "NW",
+              "max_kt": 43.1
+            },
+            {
+              "hora": "03:00",
+              "dir": "W",
+              "max_kt": 45.2
+            },
+            {
+              "hora": "06:00",
+              "dir": "SW",
+              "max_kt": 32.8
+            },
+            {
+              "hora": "09:00",
+              "dir": "W",
+              "max_kt": 27.2
+            },
+            {
+              "hora": "15:00",
+              "dir": "W",
+              "max_kt": 28.7
+            },
+            {
+              "hora": "18:00",
+              "dir": "NW",
+              "max_kt": 28.7
+            },
+            {
+              "hora": "21:00",
+              "dir": "NW",
+              "max_kt": 28.2
+            }
+          ],
+          "windows_lt20": [
+            {
+              "inicio": "06:00",
+              "fin": "21:00",
+              "hours": 18,
+              "dir": "W"
+            }
+          ]
+        },
+        {
+          "day": "2026-04-15",
+          "dir_dom": "N",
+          "max_kt": 35.9,
+          "p75_day": 18.1,
+          "gt25": [
+            {
+              "hora": "00:00",
+              "dir": "N",
+              "max_kt": 30.3
+            },
+            {
+              "hora": "03:00",
+              "dir": "N",
+              "max_kt": 31.4
+            },
+            {
+              "hora": "06:00",
+              "dir": "N",
+              "max_kt": 32.0
+            },
+            {
+              "hora": "09:00",
+              "dir": "N",
+              "max_kt": 33.7
+            },
+            {
+              "hora": "12:00",
+              "dir": "N",
+              "max_kt": 33.7
+            },
+            {
+              "hora": "15:00",
+              "dir": "N",
+              "max_kt": 35.1
+            },
+            {
+              "hora": "18:00",
+              "dir": "N",
+              "max_kt": 35.3
+            },
+            {
+              "hora": "21:00",
+              "dir": "N",
+              "max_kt": 35.9
+            }
+          ],
+          "windows_lt20": [
+            {
+              "inicio": "00:00",
+              "fin": "21:00",
+              "hours": 24,
+              "dir": "N"
+            }
+          ]
+        },
+        {
+          "day": "2026-04-16",
+          "dir_dom": "N",
+          "max_kt": 39.1,
+          "p75_day": 24.2,
+          "gt25": [
+            {
+              "hora": "00:00",
+              "dir": "N",
+              "max_kt": 37.7
+            },
+            {
+              "hora": "03:00",
+              "dir": "N",
+              "max_kt": 38.0
+            },
+            {
+              "hora": "06:00",
+              "dir": "N",
+              "max_kt": 39.1
+            },
+            {
+              "hora": "09:00",
+              "dir": "N",
+              "max_kt": 38.4
+            },
+            {
+              "hora": "12:00",
+              "dir": "N",
+              "max_kt": 32.5
+            },
+            {
+              "hora": "15:00",
+              "dir": "N",
+              "max_kt": 30.8
+            },
+            {
+              "hora": "18:00",
+              "dir": "NW",
+              "max_kt": 29.2
+            },
+            {
+              "hora": "21:00",
+              "dir": "NW",
+              "max_kt": 28.5
+            }
+          ],
+          "windows_lt20": [
+            {
+              "inicio": "18:00",
+              "fin": "21:00",
+              "hours": 6,
+              "dir": "NW"
+            }
+          ]
+        },
+        {
+          "day": "2026-04-17",
+          "dir_dom": "NW",
+          "max_kt": 33.0,
+          "p75_day": 18.9,
+          "gt25": [
+            {
+              "hora": "00:00",
+              "dir": "NW",
+              "max_kt": 30.8
+            },
+            {
+              "hora": "03:00",
+              "dir": "W",
+              "max_kt": 33.0
+            },
+            {
+              "hora": "06:00",
+              "dir": "W",
+              "max_kt": 29.2
+            }
+          ],
+          "windows_lt20": [
+            {
+              "inicio": "00:00",
+              "fin": "21:00",
+              "hours": 24,
+              "dir": "NW"
+            }
+          ]
+        },
+        {
+          "day": "2026-04-18",
+          "dir_dom": "N",
+          "max_kt": 39.2,
+          "p75_day": 26.8,
+          "gt25": [
+            {
+              "hora": "03:00",
+              "dir": "N",
+              "max_kt": 25.8
+            },
+            {
+              "hora": "06:00",
+              "dir": "N",
+              "max_kt": 26.2
+            },
+            {
+              "hora": "12:00",
+              "dir": "E",
+              "max_kt": 27.2
+            },
+            {
+              "hora": "15:00",
+              "dir": "S",
+              "max_kt": 30.3
+            },
+            {
+              "hora": "18:00",
+              "dir": "S",
+              "max_kt": 35.4
+            },
+            {
+              "hora": "21:00",
+              "dir": "S",
+              "max_kt": 39.2
+            }
+          ],
+          "windows_lt20": [
+            {
+              "inicio": "00:00",
+              "fin": "15:00",
+              "hours": 18,
+              "dir": "N"
+            }
+          ]
+        },
+        {
+          "day": "2026-04-19",
+          "dir_dom": "SW",
+          "max_kt": 43.9,
+          "p75_day": 26.9,
+          "gt25": [
+            {
+              "hora": "00:00",
+              "dir": "SW",
+              "max_kt": 43.9
+            },
+            {
+              "hora": "03:00",
+              "dir": "SW",
+              "max_kt": 30.1
+            }
+          ],
+          "windows_lt20": [
+            {
+              "inicio": "06:00",
+              "fin": "21:00",
+              "hours": 18,
+              "dir": "W"
+            }
+          ]
+        },
+        {
+          "day": "2026-04-20",
+          "dir_dom": "NW",
+          "max_kt": 22.9,
+          "p75_day": 8.5,
+          "gt25": [],
+          "windows_lt20": [
+            {
+              "inicio": "00:00",
+              "fin": "21:00",
+              "hours": 24,
+              "dir": "NW"
+            }
+          ]
+        },
+        {
+          "day": "2026-04-21",
+          "dir_dom": "W",
+          "max_kt": 18.3,
+          "p75_day": 10.9,
+          "gt25": [],
+          "windows_lt20": [
+            {
+              "inicio": "00:00",
+              "fin": "21:00",
+              "hours": 24,
+              "dir": "W"
+            }
+          ]
+        },
+        {
+          "day": "2026-04-22",
+          "dir_dom": "NE",
+          "max_kt": 18.3,
+          "p75_day": 8.0,
+          "gt25": [],
+          "windows_lt20": [
+            {
+              "inicio": "00:00",
+              "fin": "03:00",
+              "hours": 6,
+              "dir": "NE"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
